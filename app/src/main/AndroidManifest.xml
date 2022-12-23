@@ -20,10 +20,10 @@
             android:name=".Intro.SlideHostActivity"
             android:exported="false" />
         <activity
-            android:name=".Intro.SplashScreenActivity"
+            android:name=".SignIn.SignInHostActivity"
             android:exported="false" />
         <activity
-            android:name=".SignIn.SignInHostActivity"
+            android:name=".Intro.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

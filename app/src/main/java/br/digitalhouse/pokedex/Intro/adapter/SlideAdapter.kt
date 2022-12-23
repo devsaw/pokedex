@@ -14,7 +14,7 @@ class SlideAdapter (private val items: List<SlideDataClass>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SlideViewHolder {
         return SlideViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.layout_slides, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.layout_slide, parent, false)
         )
     }
 

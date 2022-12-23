@@ -9,13 +9,14 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import br.digitalhouse.pokedex.DashBoard.DashBoardHostActivity
 import br.digitalhouse.pokedex.Intro.adapter.SlideAdapter
+import br.digitalhouse.pokedex.Intro.model.SlideDataClass
 import br.digitalhouse.pokedex.R
-import br.digitalhouse.pokedex.databinding.ActivitySlideBinding
+import br.digitalhouse.pokedex.SignIn.SignInHostActivity
+import br.digitalhouse.pokedex.databinding.ActivitySlideHostBinding
 
 class SlideHostActivity : AppCompatActivity() {
-    private val binding: ActivitySlideBinding by lazy { ActivitySlideBinding.inflate(layoutInflater) }
+    private val binding: ActivitySlideHostBinding by lazy { ActivitySlideHostBinding.inflate(layoutInflater) }
     private lateinit var introSlideAdapter: SlideAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +30,7 @@ class SlideHostActivity : AppCompatActivity() {
 
     private fun setOnClickListener() {
         binding.btnEnter.setOnClickListener{
-            startActivity(Intent(this, DashBoardHostActivity::class.java))
+            startActivity(Intent(this, SignInHostActivity::class.java))
         }
 
     }
@@ -37,8 +38,8 @@ class SlideHostActivity : AppCompatActivity() {
     private fun setOnBoardingItems() {
         introSlideAdapter = SlideAdapter(
             listOf(
-                IntroSlideDataClass(image = R.drawable.logo_fundo_branco, description = "A alugue.com é uma plataforma pensada em oferecer à você a melhor experiência de hospedagem, com cuidado e dedicação em cada detalhe. Vem viajar com a gente!"),
-                IntroSlideDataClass(image = R.drawable.logo_fundo_branco, description = "Bem vindo ao alugue.com!"),
+                SlideDataClass(image = R.drawable.pokepng, description = "150 pokemons"),
+                SlideDataClass(image = R.drawable.pokepng, description = "Capture o seu!"),
             )
         )
         val slideViewPager = findViewById<ViewPager2>(R.id.fragment_onboarding_slide_viewpager)
@@ -55,7 +56,7 @@ class SlideHostActivity : AppCompatActivity() {
             if (slideViewPager.currentItem +1 <introSlideAdapter.itemCount){
                 slideViewPager.currentItem +=1
             }else{
-                startActivity(Intent(this, SignInActivity::class.java))
+                startActivity(Intent(this, SignInHostActivity::class.java))
             }
         }
     }
