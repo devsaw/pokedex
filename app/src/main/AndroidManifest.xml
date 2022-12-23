@@ -14,7 +14,16 @@
         android:theme="@style/Theme.Pokedex"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".DashBoard.DashBoardHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Intro.SlideHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Intro.SplashScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignIn.SignInHostActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
