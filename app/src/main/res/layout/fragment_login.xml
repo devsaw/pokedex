@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bluePoke"
+    android:background="@drawable/gradient_background"
     tools:context=".SignIn.LoginFragment">
 
     <ScrollView
@@ -44,7 +44,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/loginEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="54dp"
                     tools:ignore="MissingConstraints" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,23 +81,23 @@
 
             <ImageView
                 android:id="@+id/btGoogle"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="80dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/googlelogo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnIntentCell"
-                android:layout_width="75dp"
-                android:layout_height="84dp"
-                android:layout_marginStart="50dp"
-                android:background="@drawable/phone_foreground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnIntentCell"
+                    android:layout_width="72dp"
+                    android:layout_height="79dp"
+                    android:layout_marginStart="50dp"
+                    android:background="@drawable/phone_foreground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
             </LinearLayout>
 
@@ -105,7 +105,7 @@
                 android:id="@+id/btLogin"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="155dp"
+                android:layout_marginTop="154dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="100dp"

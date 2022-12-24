@@ -25,14 +25,6 @@ class SlideHostActivity : AppCompatActivity() {
         setOnBoardingItems()
         setUpIndicators()
         setCurrentIndicator(0)
-        setOnClickListener()
-    }
-
-    private fun setOnClickListener() {
-        binding.btnEnter.setOnClickListener{
-            startActivity(Intent(this, SignInHostActivity::class.java))
-        }
-
     }
 
     private fun setOnBoardingItems() {
