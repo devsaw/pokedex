@@ -30,6 +30,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.btLogin.setOnClickListener{
             startActivity(Intent(requireContext(), DashBoardHostActivity::class.java))
         }
+
+        binding.btnIntentCell.setOnClickListener{
+            startActivity(Intent(requireContext(), SmsActivity::class.java))
+        }
     }
 
 }

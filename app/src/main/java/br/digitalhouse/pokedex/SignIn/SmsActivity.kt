@@ -87,6 +87,10 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
                 Toast.makeText(this, "Digite seu número!", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnBack.setOnClickListener{
+            finish()
+        }
     }
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {

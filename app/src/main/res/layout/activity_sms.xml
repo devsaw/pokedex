@@ -7,6 +7,22 @@
     android:background="@drawable/gradient_background"
     tools:context=".SignIn.SmsActivity">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBack"
+        style="@style/back_button"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_backbutton"
+        android:paddingLeft="11dp"
+        app:icon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:iconSize="23dp"
+        app:iconTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView3"
         android:layout_width="match_parent"
