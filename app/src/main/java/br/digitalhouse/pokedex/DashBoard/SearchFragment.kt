@@ -1,17 +1,15 @@
-package br.digitalhouse.pokedex.SignIn
+package br.digitalhouse.pokedex.DashBoard
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import br.digitalhouse.pokedex.DashBoard.DashBoardHostActivity
+import androidx.fragment.app.Fragment
 import br.digitalhouse.pokedex.R
-import br.digitalhouse.pokedex.databinding.FragmentLoginBinding
+import br.digitalhouse.pokedex.databinding.FragmentSearchBinding
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
-    private val binding: FragmentLoginBinding by lazy { FragmentLoginBinding.inflate(layoutInflater) }
+class SearchFragment : Fragment(R.layout.fragment_search) {
+    private val binding: FragmentSearchBinding by lazy { FragmentSearchBinding.inflate(layoutInflater) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,9 +25,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun setOnClickListener() {
-        binding.btLogin.setOnClickListener{
-            startActivity(Intent(requireContext(), DashBoardHostActivity::class.java))
-        }
+
     }
 
 }

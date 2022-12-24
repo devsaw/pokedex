@@ -14,10 +14,10 @@ class SignInHostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        initReservationBottomNav()
+        initBottomNav()
     }
 
-    private fun initReservationBottomNav() {
+    private fun initBottomNav() {
         val tabLayout = binding.myTabLayout
         val viewPager = binding.viewPagerTab
         val adapterTab = SignInAdapter(supportFragmentManager, lifecycle)
@@ -26,10 +26,10 @@ class SignInHostActivity : AppCompatActivity() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.tag = R.drawable.entrarpng
+                    tab.text = "Logar"
                 }
                 1 -> {
-                    tab.tag = R.drawable.registrarpng
+                    tab.text = "Registrar"
                 }
             }
         }.attach()

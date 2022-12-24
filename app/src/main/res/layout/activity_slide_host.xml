@@ -78,7 +78,7 @@
         android:backgroundTint="@color/YellowPoke"
         android:text="ENTRE"
         android:textAllCaps="false"
-        android:textColor="@color/bluePoke"
+        android:textColor="@color/black"
         android:textSize="14dp"
         android:textStyle="bold"
         app:cornerRadius="20dp"

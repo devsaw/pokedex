@@ -42,16 +42,15 @@
         android:id="@+id/myTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:background="@color/bluePoke"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
-        app:tabIndicatorColor="@color/YellowPoke"
+        app:tabIndicatorColor="@color/white"
         app:tabIndicatorHeight="3dp"
-        app:tabTextColor="@color/white"
+        app:tabTextColor="@color/YellowPoke"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
