@@ -33,7 +33,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:ems="10"
-                android:hint="Usuário"
+                android:hint="Email"
                 android:inputType="textPersonName"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
@@ -77,7 +77,7 @@
                 android:layout_marginTop="25dp">
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textViewPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"

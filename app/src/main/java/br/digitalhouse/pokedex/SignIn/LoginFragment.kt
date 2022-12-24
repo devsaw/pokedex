@@ -34,6 +34,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.btnIntentCell.setOnClickListener{
             startActivity(Intent(requireContext(), SmsActivity::class.java))
         }
+
+        binding.textViewPass.setOnClickListener{
+            startActivity(Intent(requireContext(), ForgotPassActivity::class.java))
+        }
     }
 
 }
