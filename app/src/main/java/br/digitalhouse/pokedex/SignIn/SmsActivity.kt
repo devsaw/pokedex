@@ -16,6 +16,8 @@ import br.digitalhouse.pokedex.DashBoard.DashBoardHostActivity
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.ActivitySmsBinding
 import com.google.firebase.FirebaseException
+import com.google.firebase.FirebaseTooManyRequestsException
+import com.google.firebase.auth.*
 import java.util.concurrent.TimeUnit
 
 class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
@@ -75,7 +77,7 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
                     val options = PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(number)
                         .setTimeout(60L, TimeUnit.SECONDS)
-                        .setActivity(requireActivity())
+                        .setActivity(this)
                         .setCallbacks(callbacks)
                         .build()
                     PhoneAuthProvider.verifyPhoneNumber(options)
@@ -100,7 +102,6 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
-
             if (e is FirebaseAuthInvalidCredentialsException) {
                 Log.d("TAG", "onVerificationFailed: ${e.toString()}")
             } else if (e is FirebaseTooManyRequestsException) {
@@ -121,7 +122,7 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
-            .addOnCompleteListener(requireActivity()) { task ->
+            .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Login efetuado!", Toast.LENGTH_SHORT).show()
                     sendToMain()
@@ -160,7 +161,6 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
         inputOTP6 = binding.otpEditText6
         sendOTPBtn = binding.sendOTPBtn
         phoneNumberET = binding.phoneEditTextNumber
-        auth = FirebaseAuth.getInstance()
     }
 
     override fun onStart() {

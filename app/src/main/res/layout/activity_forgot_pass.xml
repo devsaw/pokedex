@@ -7,7 +7,7 @@
     android:background="@drawable/gradient_background"
     tools:context=".SignIn.ForgotPassActivity">
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnBack"
         style="@style/back_button"
         android:layout_width="38dp"
@@ -19,17 +19,6 @@
         app:icon="@drawable/ic_baseline_arrow_back_ios_24"
         app:iconSize="23dp"
         app:iconTint="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView3"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:background="@color/bluePoke"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -48,12 +37,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView3">
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textUserForgot"
