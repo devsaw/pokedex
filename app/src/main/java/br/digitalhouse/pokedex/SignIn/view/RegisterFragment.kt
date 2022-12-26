@@ -75,12 +75,14 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             usuario!!.email.toString(), usuario!!.senha.toString()
         ).addOnCompleteListener(requireActivity()) {
             if (it.isSuccessful) {
+                binding.progressBar.visibility = View.GONE
                 val idUsuario = Base64Custom.codificarBase64(usuario!!.email)
                 usuario!!.idUsuario = idUsuario
                 usuario!!.saveUser()
                 Toast.makeText(requireContext(), "Cadastro efetuado!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(requireContext(), SignInHostActivity::class.java))
             } else {
+                binding.progressBar.visibility = View.GONE
                 var excecao = ""
                 try {
                     throw it.exception!!
@@ -95,7 +97,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     excecao = "Erro ao cadastrar usuário: " + e.message
                     e.printStackTrace()
                 }
-                binding.progressBar.visibility = View.GONE
                 Toast.makeText(requireContext(), excecao, Toast.LENGTH_LONG).show()
             }
         }

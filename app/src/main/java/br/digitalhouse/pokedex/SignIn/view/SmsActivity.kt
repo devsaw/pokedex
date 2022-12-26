@@ -3,14 +3,12 @@ package br.digitalhouse.pokedex.SignIn.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import br.digitalhouse.pokedex.DashBoard.view.DashBoardHostActivity
 import br.digitalhouse.pokedex.R
@@ -22,7 +20,7 @@ import java.util.concurrent.TimeUnit
 
 class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
     private val binding: ActivitySmsBinding by lazy { ActivitySmsBinding.inflate(layoutInflater) }
-    private lateinit var auth: FirebaseAuth
+    private var auth: FirebaseAuth? = null
     private lateinit var verifyBtn: Button
     private lateinit var inputOTP1: EditText
     private lateinit var inputOTP2: EditText
@@ -30,63 +28,66 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
     private lateinit var inputOTP4: EditText
     private lateinit var inputOTP5: EditText
     private lateinit var inputOTP6: EditText
-    private lateinit var progressBar: ProgressBar
-    private lateinit var OTP: String
+    private var OTP: String? = null
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var sendOTPBtn: Button
     private lateinit var phoneNumberET: EditText
     private lateinit var number: String
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
         init()
         clickListener()
-        progressBar.visibility = View.INVISIBLE
         addTextChangeListener()
     }
 
 
     private fun clickListener(){
-
-        verifyBtn.setOnClickListener {
-            val typedOTP =
-                (inputOTP1.text.toString() + inputOTP2.text.toString() + inputOTP3.text.toString()
-                        + inputOTP4.text.toString() + inputOTP5.text.toString() + inputOTP6.text.toString())
-
-            if (typedOTP.isNotEmpty()) {
-                if (typedOTP.length == 6) {
-                    val credential: PhoneAuthCredential = PhoneAuthProvider.getCredential(
-                        OTP, typedOTP
-                    )
-                    progressBar.visibility = View.VISIBLE
-                    signInWithPhoneAuthCredential(credential)
-                } else {
-                    Toast.makeText(this, "Digite o número corretamente!", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(this, "Digite o código!", Toast.LENGTH_SHORT).show()
-            }
-        }
-
         sendOTPBtn.setOnClickListener {
             number = phoneNumberET.text.trim().toString()
             if (number.isNotEmpty()) {
                 if (number.length == 11) {
                     number = "+55$number"
-                    progressBar.visibility = View.VISIBLE
-                    val options = PhoneAuthOptions.newBuilder(auth)
+                    binding.progressBar.visibility = View.VISIBLE
+                    val options = PhoneAuthOptions.newBuilder(auth!!)
                         .setPhoneNumber(number)
                         .setTimeout(60L, TimeUnit.SECONDS)
                         .setActivity(this)
                         .setCallbacks(callbacks)
                         .build()
                     PhoneAuthProvider.verifyPhoneNumber(options)
-
+                    Toast.makeText(this, "Aguarde a verificação e o SMS!", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Digite o número corretamente!", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Digite seu número!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        verifyBtn.setOnClickListener {
+            binding.progressBar.visibility = View.VISIBLE
+            val typedOTP =
+                (inputOTP1.text.toString() + inputOTP2.text.toString() + inputOTP3.text.toString()
+                        + inputOTP4.text.toString() + inputOTP5.text.toString() + inputOTP6.text.toString())
+
+            if (typedOTP.isNotEmpty()) {
+                if (typedOTP.length == 6) {
+                    try {
+                        val credential: PhoneAuthCredential = PhoneAuthProvider.getCredential(OTP!!, typedOTP)
+                        signInWithPhoneAuthCredential(credential)
+                    } catch (e: Exception){
+                        binding.progressBar.visibility = View.GONE
+                        Toast.makeText(this, "Código incorreto!", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this, "Digite o código!", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(this, "Digite o código!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -98,7 +99,8 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-            signInWithPhoneAuthCredential(credential)
+                signInWithPhoneAuthCredential(credential)
+
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
@@ -107,7 +109,7 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
             } else if (e is FirebaseTooManyRequestsException) {
                 Log.d("TAG", "onVerificationFailed: ${e.toString()}")
             }
-            progressBar.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.VISIBLE
         }
 
         override fun onCodeSent(
@@ -116,27 +118,23 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
         ) {
             OTP = verificationId
             resendToken = token
-            progressBar.visibility = View.INVISIBLE
+            binding.progressBar.visibility = View.GONE
         }
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
+            auth!!.signInWithCredential(credential).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Login efetuado!", Toast.LENGTH_SHORT).show()
-                    sendToMain()
-                } else {
+                    Toast.makeText(this, "Logado!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, DashBoardHostActivity::class.java))
+                } else if (task.exception is FirebaseAuthInvalidCredentialsException) {
                     Log.d("TAG", "signInWithPhoneAuthCredential: ${task.exception.toString()}")
-                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                    }
+                    Toast.makeText(this, "Código incorreto!", Toast.LENGTH_SHORT).show()
+                    binding.progressBar.visibility = View.GONE
+                } else{
+                    Toast.makeText(this, "Tente mais tarde!", Toast.LENGTH_SHORT).show()
                 }
-                progressBar.visibility = View.VISIBLE
             }
-    }
-
-    private fun sendToMain() {
-        startActivity(Intent(this, DashBoardHostActivity::class.java))
     }
 
     private fun addTextChangeListener() {
@@ -150,8 +148,7 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
 
     private fun init() {
         auth = FirebaseAuth.getInstance()
-        progressBar = binding.otpProgressBar
-        progressBar.visibility = View.INVISIBLE
+        binding.progressBar.visibility = View.GONE
         verifyBtn = binding.verifyOTPBtn
         inputOTP1 = binding.otpEditText1
         inputOTP2 = binding.otpEditText2
@@ -163,12 +160,12 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
         phoneNumberET = binding.phoneEditTextNumber
     }
 
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser != null) {
-            sendToMain()
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        if (auth!!.currentUser != null) {
+//            sendToMain()
+//        }
+//    }
 
 
     inner class EditTextWatcher(private val view: View) : TextWatcher {
