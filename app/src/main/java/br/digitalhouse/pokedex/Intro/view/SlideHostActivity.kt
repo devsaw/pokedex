@@ -1,4 +1,4 @@
-package br.digitalhouse.pokedex.Intro
+package br.digitalhouse.pokedex.Intro.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import br.digitalhouse.pokedex.Intro.adapter.SlideAdapter
 import br.digitalhouse.pokedex.Intro.model.SlideDataClass
 import br.digitalhouse.pokedex.R
-import br.digitalhouse.pokedex.SignIn.SignInHostActivity
+import br.digitalhouse.pokedex.SignIn.view.SignInHostActivity
 import br.digitalhouse.pokedex.databinding.ActivitySlideHostBinding
 
 class SlideHostActivity : AppCompatActivity() {

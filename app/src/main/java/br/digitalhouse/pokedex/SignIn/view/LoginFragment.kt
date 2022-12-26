@@ -1,4 +1,4 @@
-package br.digitalhouse.pokedex.SignIn
+package br.digitalhouse.pokedex.SignIn.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import br.digitalhouse.pokedex.DashBoard.DashBoardHostActivity
+import br.digitalhouse.pokedex.DashBoard.view.DashBoardHostActivity
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.FragmentLoginBinding
 

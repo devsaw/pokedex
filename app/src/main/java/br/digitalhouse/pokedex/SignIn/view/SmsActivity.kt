@@ -1,4 +1,4 @@
-package br.digitalhouse.pokedex.SignIn
+package br.digitalhouse.pokedex.SignIn.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import br.digitalhouse.pokedex.DashBoard.DashBoardHostActivity
+import br.digitalhouse.pokedex.DashBoard.view.DashBoardHostActivity
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.ActivitySmsBinding
 import com.google.firebase.FirebaseException

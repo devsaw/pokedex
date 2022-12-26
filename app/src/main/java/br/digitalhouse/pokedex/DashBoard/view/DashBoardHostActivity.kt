@@ -1,4 +1,4 @@
-package br.digitalhouse.pokedex.DashBoard
+package br.digitalhouse.pokedex.DashBoard.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

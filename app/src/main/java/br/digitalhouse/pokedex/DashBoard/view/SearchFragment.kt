@@ -1,4 +1,4 @@
-package br.digitalhouse.pokedex.DashBoard
+package br.digitalhouse.pokedex.DashBoard.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

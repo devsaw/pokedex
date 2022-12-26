@@ -1,4 +1,4 @@
-package br.digitalhouse.pokedex.SignIn
+package br.digitalhouse.pokedex.SignIn.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package br.digitalhouse.pokedex.Intro
+package br.digitalhouse.pokedex.Intro.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
