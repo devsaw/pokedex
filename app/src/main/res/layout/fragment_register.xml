@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_background"
-    tools:context=".SignIn.view.RegisterFragment">
+    tools:context=".signin.view.RegisterFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,6 +43,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextNameRegister"
+                android:maxLength="45"
                 android:layout_width="match_parent"
                 android:keyboardNavigationCluster="false"
                 android:layout_height="54dp"
@@ -69,6 +70,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextUserRegister"
             android:layout_width="match_parent"
+            android:maxLength="45"
             android:keyboardNavigationCluster="false"
             android:layout_height="54dp"
             tools:ignore="MissingConstraints" />
@@ -93,6 +95,7 @@
             android:id="@+id/editTextPassRegister"
             android:layout_width="match_parent"
             android:layout_height="54dp"
+            android:maxLength="25"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,6 +118,7 @@
                 android:id="@+id/editTwoTextPassRegister"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
+                android:maxLength="45"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 

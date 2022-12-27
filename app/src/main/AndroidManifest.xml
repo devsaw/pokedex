@@ -14,22 +14,31 @@
         android:theme="@style/Theme.Pokedex"
         tools:targetApi="31">
         <activity
-            android:name=".SignIn.view.ForgotPassActivity"
+            android:name=".menu.view.PixActivity"
             android:exported="false" />
         <activity
-            android:name=".SignIn.view.SmsActivity"
+            android:name=".menu.view.PasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".DashBoard.view.DashBoardHostActivity"
+            android:name=".menu.view.PerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".Intro.view.SlideHostActivity"
+            android:name=".signin.view.ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name=".SignIn.view.SignInHostActivity"
+            android:name=".signin.view.SmsActivity"
             android:exported="false" />
         <activity
-            android:name=".Intro.view.SplashScreenActivity"
+            android:name=".dashboard.view.DashBoardHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".intro.view.SlideHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".signin.view.SignInHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".intro.view.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
