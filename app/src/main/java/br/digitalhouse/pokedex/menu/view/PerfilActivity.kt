@@ -1,7 +1,6 @@
 package br.digitalhouse.pokedex.menu.view
 
 import android.Manifest
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,18 +12,13 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.Settings
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.ActivityPerfilBinding
-import br.digitalhouse.pokedex.signin.view.SignInHostActivity
 import com.google.firebase.auth.FirebaseAuth
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -112,10 +106,10 @@ class PerfilActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         try {
-            if (requestCode == IMAGE_CAPTURE_CODE) {
-                val foto = data?.getParcelableExtra<Bitmap>("data")
+            if (requestCode == IMAGE_CAPTURE_CODE && data != null) {
+                val foto = data.getParcelableExtra<Bitmap>("data")
                 binding.imageViewClient.setImageBitmap(foto)
-                val extras = data?.extras
+                val extras = data.extras
                 val img = extras!!.get("data") as Bitmap
                 val tempUri = getImageUri(this, img)
                 val finalFile = File(getRealPathFromURI(tempUri))
@@ -180,59 +174,26 @@ class PerfilActivity : AppCompatActivity() {
         return path
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == IMAGE_CAPTURE_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(intent, IMAGE_CAPTURE_CODE)
+            }
+        }
 
+        if (requestCode == IMAGE_STORAGE_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                startActivityForResult(intent, IMAGE_STORAGE_CODE)
+            }
+        }
+    }
 
-
-
-
-
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int, permissions: Array<String?>,
-//        grantResults: IntArray
-//    ) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//        for (permission in permissions) {
-//            if (ActivityCompat.shouldShowRequestPermissionRationale(
-//                    this,
-//                    permission!!
-//                )
-//            ) {
-//                //denied
-//                Toast.makeText(
-//                    this,
-//                    "Por favor, aceite todas as permissões necessárias!",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//
-//                startInstalledAppDetailsActivity(this)
-//                break
-//            } else {
-//                if (ActivityCompat.checkSelfPermission(
-//                        this, permission
-//                    ) != PackageManager.PERMISSION_GRANTED
-//                ) {
-//                    //never ask again
-//                    Toast.makeText(
-//                        this,
-//                        "Por favor, aceite todas as permissões necessárias!",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                    startInstalledAppDetailsActivity(this)
-//                    break
-//                }
-//            }
-//        }
-//    }
-//
-//    private fun startInstalledAppDetailsActivity(context: Activity?) {
-//        if (context == null) {
-//            return
-//        }
-//
-//        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//        val uri = Uri.fromParts("package", this.packageName, null)
-//        intent.data = uri
-//        context.startActivity(intent)
-//    }
 }
