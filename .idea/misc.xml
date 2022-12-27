@@ -16,6 +16,7 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/indicator_active_background.xml" value="0.155" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/indicator_inactive_background.xml" value="0.155" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/phone_foreground.xml" value="0.155" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_alert_dialog.xml" value="0.1915" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_backbutton_blue.xml" value="0.178" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_background_img_menu.xml" value="0.1975" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_background_picture_menu.xml" value="0.172" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_slide_host.xml" value="0.264" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_sms.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/alert_dialog.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_home.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_login.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
