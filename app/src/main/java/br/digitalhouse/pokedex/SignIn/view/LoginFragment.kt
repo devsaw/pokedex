@@ -59,6 +59,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.textViewPass.setOnClickListener{
             startActivity(Intent(requireContext(), ForgotPassActivity::class.java))
         }
+
+        binding.btGoogle.setOnClickListener{
+
+        }
     }
 
     private fun validLogin(email: String, password: String) {
