@@ -2,6 +2,7 @@ package br.digitalhouse.pokedex.menu.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import br.digitalhouse.pokedex.databinding.ActivityPixBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -18,5 +19,14 @@ class PixActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener{
             finish()
         }
+
+        binding.btnCopy.setOnClickListener{
+            copyKey()
+            Toast.makeText(this, "Chave copiada!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun copyKey() {
+
     }
 }

@@ -112,7 +112,6 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="80dp"
                     android:focusable="true"
                     android:textAlignment="center"
                     android:textColor="@color/black"
@@ -122,6 +121,22 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:text="cba9ba47-6e34-4503-b357-fee53bd343da" />
+
+            <Button
+                android:id="@+id/btnCopy"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="80dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:text="Copiar chave"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
     </ScrollView>
 

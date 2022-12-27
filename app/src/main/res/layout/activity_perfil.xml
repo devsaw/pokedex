@@ -104,20 +104,18 @@
         android:id="@+id/nomeClient"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/shape_itens_menu"
         android:maxLength="45"
-        android:paddingStart="20dp"
+        android:paddingStart="25dp"
         android:singleLine="true"
         android:textColor="@color/black"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
 
     <Button
         android:id="@+id/btnAlterar"
@@ -129,12 +127,22 @@
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/white"
         android:text="Alterar"
-        android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="19dp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.500" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
