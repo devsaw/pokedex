@@ -14,4 +14,9 @@
         android:name="br.digitalhouse.pokedex.DashBoard.view.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="br.digitalhouse.pokedex.DashBoard.view.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
 </navigation>

@@ -10,5 +10,6 @@
     <color name="bluePoke">#30B6FE</color>
     <color name="gradOne">#6CCCFF</color>
     <color name="gradTwo">#B1E3FD</color>
+    <color name="foundColor">#B1E3FD</color>
     <color name="YellowPoke">#FFD600</color>
 </resources>

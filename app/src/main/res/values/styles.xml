@@ -10,4 +10,10 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="ImageViewCirclee" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">65dp</item>
+        <item name="android:textSize">18dp</item>
+    </style>
 </resources>

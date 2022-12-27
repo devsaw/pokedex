@@ -13,5 +13,11 @@
         android:icon="@drawable/googlelogo"
         android:iconTint="@color/white"/>
 
+    <item
+        android:title="Menu"
+        android:id="@+id/menuFragment"
+        android:icon="@drawable/menu"
+        android:iconTint="@color/white"/>
+
 
 </menu>
