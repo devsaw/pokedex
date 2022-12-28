@@ -60,7 +60,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             }
 
              usuario = User()
-             usuario!!.name = name
+             usuario!!.nome = name
              usuario!!.email = email
              usuario!!.senha = password
              createUser()

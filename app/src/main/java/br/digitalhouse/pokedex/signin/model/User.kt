@@ -6,7 +6,7 @@ import com.google.firebase.database.Exclude
 class User {
     @get:Exclude
     var idUsuario: String? = null
-    var name: String? = null
+    var nome: String? = null
     var email: String? = null
     var senha: String? = null
 
