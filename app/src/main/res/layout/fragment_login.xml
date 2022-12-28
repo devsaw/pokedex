@@ -44,6 +44,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/loginEditText"
                     android:layout_width="match_parent"
+                    android:maxLength="45"
                     android:layout_height="54dp"
                     tools:ignore="MissingConstraints" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -67,6 +68,7 @@
                     android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
+                    android:maxLength="25"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 

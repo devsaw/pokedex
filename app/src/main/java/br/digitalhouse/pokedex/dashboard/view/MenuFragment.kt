@@ -16,13 +16,12 @@ import br.digitalhouse.pokedex.databinding.FragmentMenuBinding
 import br.digitalhouse.pokedex.menu.view.PasswordActivity
 import br.digitalhouse.pokedex.menu.view.PerfilActivity
 import br.digitalhouse.pokedex.menu.view.PixActivity
+import br.digitalhouse.pokedex.signin.utils.ConfigFirebase
 import com.google.firebase.auth.FirebaseAuth
 
 class MenuFragment : Fragment() {
     private val binding: FragmentMenuBinding by lazy { FragmentMenuBinding.inflate(layoutInflater) }
     private lateinit var alertDialog: AlertDialog
-    private var preferences: Preferences?= null
-    private var auth: FirebaseAuth? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,9 +77,8 @@ class MenuFragment : Fragment() {
             textAlertDialog.setText("Deseja sair da PokeDex?")
             btnNo.setOnClickListener{ alertDialog.dismiss() }
             btnYes.setOnClickListener{ alertDialog.dismiss()
-//                auth!!.signOut()
-//                preferences!!.clearUserData()
-                Toast.makeText(requireContext(), "Você foi deslogado!", Toast.LENGTH_LONG).show()
+                FirebaseAuth.getInstance().signOut()
+                Toast.makeText(requireContext(), "Você saiu!", Toast.LENGTH_LONG).show()
                 startActivity(Intent(requireContext(), SignInHostActivity::class.java))}
             alertDialog = build.create()
             alertDialog.show()

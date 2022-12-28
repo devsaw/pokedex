@@ -118,7 +118,7 @@
                 android:id="@+id/editTwoTextPassRegister"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:maxLength="45"
+                android:maxLength="25"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
