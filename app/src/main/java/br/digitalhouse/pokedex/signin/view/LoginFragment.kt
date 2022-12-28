@@ -79,7 +79,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 try {
                     throw task.exception!!
                 } catch (e: FirebaseAuthInvalidUserException) {
-                    excecao = "Usuário inválido!."
+                    excecao = "Usuário inválido!"
                 } catch (e: FirebaseAuthInvalidCredentialsException) {
                     excecao = "Email ou senha não correspondem a um usuário cadastrado!"
                 } catch (e: Exception) {

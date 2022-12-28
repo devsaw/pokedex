@@ -64,15 +64,14 @@ class PerfilActivity : AppCompatActivity() {
     private fun setData(){
         val userAuth = auth!!.currentUser
         val idUsuario = Base64Custom.codificarBase64(userAuth!!.email)
-        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario!!)
+        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario)
         valueEventListener = nameUser.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
                 binding.nomeClient.text = user!!.nome
                 binding.emailClient.text = user.email
             }
-            override fun onCancelled(error: DatabaseError) {
-            }
+            override fun onCancelled(error: DatabaseError) {}
         })
     }
 
