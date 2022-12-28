@@ -9,10 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.ActivityPasswordBinding
-import br.digitalhouse.pokedex.signin.model.User
 import br.digitalhouse.pokedex.signin.view.SignInHostActivity
 import com.google.firebase.auth.*
-import kotlinx.coroutines.delay
 
 class PasswordActivity : AppCompatActivity() {
     private val binding: ActivityPasswordBinding by lazy { ActivityPasswordBinding.inflate(layoutInflater) }

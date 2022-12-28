@@ -262,7 +262,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="120dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="60dp"
                 android:background="@drawable/shape_itens_menu"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -19,7 +19,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.ActivityPerfilBinding
+import br.digitalhouse.pokedex.signin.model.User
+import br.digitalhouse.pokedex.signin.utils.Base64Custom
+import br.digitalhouse.pokedex.signin.utils.ConfigFirebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.crashlytics.internal.model.CrashlyticsReport
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import java.io.ByteArrayOutputStream
 import java.io.File
 
@@ -27,6 +34,8 @@ class PerfilActivity : AppCompatActivity() {
     private val binding: ActivityPerfilBinding by lazy { ActivityPerfilBinding.inflate(layoutInflater) }
     private var auth: FirebaseAuth? = null
     private lateinit var alertDialog: AlertDialog
+    private var valueEventListener: ValueEventListener? = null
+    private val firebaseRef = ConfigFirebase().getFirebase()
     private val IMAGE_CAPTURE_CODE = 1
     private val IMAGE_STORAGE_CODE = 2
     private var resultBitMap: Bitmap? = null
@@ -41,7 +50,9 @@ class PerfilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        auth = FirebaseAuth.getInstance()
         binding.progressBar.visibility = View.GONE
+        setData()
         setOnClickListener()
     }
 
@@ -50,22 +61,29 @@ class PerfilActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.GONE
     }
 
+    private fun setData(){
+        val userAuth = auth!!.currentUser
+        val idUsuario = Base64Custom.codificarBase64(userAuth!!.email)
+        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario!!)
+        valueEventListener = nameUser.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(User::class.java)
+                binding.nomeClient.text = user!!.nome
+                binding.emailClient.text = user.email
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+    }
+
     private fun setOnClickListener() {
         binding.btnBack.setOnClickListener{
-            finish()
-        }
-
-        binding.btnAlterar.setOnClickListener{
             finish()
         }
 
         binding.btnTirarFoto.setOnClickListener{
             openDialogGalleryCamera(it)
         }
-    }
-
-    private fun changeName(){
-        binding.nomeClient
     }
 
     private fun openDialogGalleryCamera(v: View?) {
