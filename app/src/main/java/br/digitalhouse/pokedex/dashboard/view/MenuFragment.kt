@@ -9,31 +9,23 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
 import br.digitalhouse.pokedex.R
-import br.digitalhouse.pokedex.signin.utils.Preferences
-import br.digitalhouse.pokedex.signin.view.SignInHostActivity
 import br.digitalhouse.pokedex.databinding.FragmentMenuBinding
 import br.digitalhouse.pokedex.menu.view.PasswordActivity
 import br.digitalhouse.pokedex.menu.view.PerfilActivity
 import br.digitalhouse.pokedex.menu.view.PixActivity
-import br.digitalhouse.pokedex.signin.model.User
-import br.digitalhouse.pokedex.signin.utils.Base64Custom
-import br.digitalhouse.pokedex.signin.utils.ConfigFirebase
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.platforminfo.LibraryVersionComponent
 
 class MenuFragment : Fragment() {
     private val binding: FragmentMenuBinding by lazy { FragmentMenuBinding.inflate(layoutInflater) }
     private var auth: FirebaseAuth? = null
-    private var valueEventListener: ValueEventListener? = null
     private lateinit var alertDialog: AlertDialog
 
     override fun onCreateView(
@@ -47,8 +39,21 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
+        showButton()
         setOnClickListener()
         setImageClient()
+    }
+
+    private fun showButton() {
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user!!.email.isNullOrEmpty()){
+            binding.meuPerfil.visibility = View.GONE
+            binding.alterarSenha.visibility = View.GONE
+            binding.desativarConta.visibility = View.GONE
+            binding.appCompatImageView.visibility = View.GONE
+            binding.imageViewClient.visibility = View.GONE
+            binding.currentUserNull.visibility = View.VISIBLE
+        }
     }
 
     private fun setOnClickListener() {
@@ -120,12 +125,12 @@ class MenuFragment : Fragment() {
     }
 
     private fun setImageClient() {
-        auth!!.currentUser
-//        Glide
-//            .with(requireContext())
-//            .load()
-//            .error(R.drawable.devtp)
-//            .into(binding.imageViewClient)
+        val fotoUser = auth!!.currentUser!!.photoUrl
+        Glide
+            .with(requireContext())
+            .load(fotoUser)
+            .error(R.drawable.ash)
+            .into(binding.imageViewClient)
     }
 }
 

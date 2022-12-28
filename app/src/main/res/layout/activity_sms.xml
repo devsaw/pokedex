@@ -97,7 +97,7 @@
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
                     android:maxLength="11"
-                    android:hint="Digite seu número..."
+                    android:hint="DDD + seu número..."
                     android:inputType="number"
                     android:paddingStart="16dp"
                     android:textSize="16sp"

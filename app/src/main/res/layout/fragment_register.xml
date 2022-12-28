@@ -156,7 +156,7 @@
         android:id="@+id/btRegister"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="114dp"
+        android:layout_marginTop="96dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="100dp"
