@@ -2,6 +2,7 @@ package br.digitalhouse.pokedex.signin.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import br.digitalhouse.pokedex.R
@@ -24,48 +25,50 @@ class ForgotPassActivity : AppCompatActivity(R.layout.activity_forgot_pass) {
     }
 
     private fun setOnClickListener() {
-        binding.btnBack.setOnClickListener{
+        binding.btnBack.setOnClickListener {
             finish()
         }
 
-        binding.btForgot.setOnClickListener{
+        binding.btForgot.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
             auth = ConfigFirebase().getAuth()
             val textEmail = binding.editTextUserForgot.text.toString()
             val user = User()
             user.email = textEmail
 
-            if (textEmail.isNullOrEmpty()){
+            if (textEmail.isNullOrEmpty()) {
                 Toast.makeText(this, "Digite o email!", Toast.LENGTH_SHORT).show()
                 binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
-            if (!textEmail.contains("@")){
+            if (!Patterns.EMAIL_ADDRESS.matcher(textEmail).matches()){
                 Toast.makeText(this, "Email inválido!", Toast.LENGTH_SHORT).show()
                 binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
 
             auth!!.sendPasswordResetEmail(textEmail).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Verifique seu email: $textEmail", Toast.LENGTH_LONG).show()
-                        binding.progressBar.visibility = View.GONE
-                        finish()
-                    } else {
-                        binding.progressBar.visibility = View.GONE
-                        var excecao = ""
-                        try {
-                            throw task.exception!!
-                        } catch (e: FirebaseAuthInvalidUserException) {
-                            excecao = "Usuário não cadastrado."
-                        } catch (e: Exception) {
-                            excecao = "Usuário não cadastrado."
-                            e.printStackTrace()
-                        }
-                        Toast.makeText(this, excecao, Toast.LENGTH_LONG).show()
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Verifique seu email: $textEmail", Toast.LENGTH_LONG)
+                        .show()
+                    binding.progressBar.visibility = View.GONE
+                    finish()
+                } else {
+                    binding.progressBar.visibility = View.GONE
+                    var excecao = ""
+                    try {
+                        throw task.exception!!
+                    } catch (e: FirebaseAuthInvalidUserException) {
+                        excecao = "Usuário não cadastrado."
+                    } catch (e: Exception) {
+                        excecao = "Usuário não cadastrado."
+                        e.printStackTrace()
                     }
+                    Toast.makeText(this, excecao, Toast.LENGTH_LONG).show()
                 }
+            }
         }
     }
+
 }
