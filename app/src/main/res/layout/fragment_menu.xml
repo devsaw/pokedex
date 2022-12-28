@@ -86,7 +86,6 @@
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginStart="10dp"
                         android:layout_marginTop="2dp"
                         android:background="@color/white"
                         android:gravity="center"
@@ -100,7 +99,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
                         android:backgroundTint="@null"
                         android:padding="10dp"
@@ -136,7 +135,6 @@
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginStart="10dp"
                         android:layout_marginTop="2dp"
                         android:background="@color/white"
                         android:gravity="center"
@@ -150,7 +148,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
                         android:backgroundTint="@null"
                         android:padding="10dp"
@@ -183,7 +181,6 @@
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginStart="10dp"
                         android:layout_marginTop="2dp"
                         android:background="@color/white"
                         android:gravity="center"
@@ -197,7 +194,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
                         android:backgroundTint="@null"
                         android:padding="10dp"
@@ -233,7 +230,6 @@
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginStart="10dp"
                         android:layout_marginTop="2dp"
                         android:background="@color/white"
                         android:gravity="center"
@@ -247,7 +243,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
                         android:backgroundTint="@null"
                         android:padding="10dp"
@@ -288,7 +284,6 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="60dp"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="2dp"
                     android:background="@color/white"
                     android:gravity="center"
@@ -302,7 +297,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="15dp"
                     android:backgroundTint="@null"
                     android:padding="10dp"
