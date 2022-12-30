@@ -12,6 +12,7 @@ import br.digitalhouse.pokedex.signin.model.User
 import br.digitalhouse.pokedex.signin.utils.Base64Custom
 import br.digitalhouse.pokedex.signin.utils.ConfigFirebase
 import br.digitalhouse.pokedex.databinding.FragmentRegisterBinding
+import br.digitalhouse.pokedex.signin.utils.Preferences
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
@@ -21,6 +22,7 @@ import java.lang.Exception
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val binding: FragmentRegisterBinding by lazy { FragmentRegisterBinding.inflate(layoutInflater) }
     private var auth: FirebaseAuth? = null
+    lateinit var preferences: Preferences
     private var usuario: User? = null
 
     override fun onCreateView(
@@ -33,6 +35,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        preferences = Preferences(requireContext())
         binding.progressBar.visibility = View.GONE
         setOnClickListener()
     }
@@ -61,6 +64,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
              usuario = User()
              usuario!!.nome = name
+             preferences.setInforUserName(usuario!!.nome!!)
              usuario!!.email = email
              usuario!!.senha = password
              createUser()

@@ -16,12 +16,10 @@ import br.digitalhouse.pokedex.databinding.FragmentMenuBinding
 import br.digitalhouse.pokedex.menu.view.PasswordActivity
 import br.digitalhouse.pokedex.menu.view.PerfilActivity
 import br.digitalhouse.pokedex.menu.view.PixActivity
+import br.digitalhouse.pokedex.signin.view.SignInHostActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.database.ValueEventListener
 
 class MenuFragment : Fragment() {
     private val binding: FragmentMenuBinding by lazy { FragmentMenuBinding.inflate(layoutInflater) }
@@ -118,7 +116,9 @@ class MenuFragment : Fragment() {
                 alertDialog.dismiss()
                 FirebaseAuth.getInstance().signOut()
                 Toast.makeText(requireContext(), "Você saiu!", Toast.LENGTH_LONG).show()
-                finishAffinity(requireActivity()) }
+                startActivity(Intent(requireContext(), SignInHostActivity::class.java))
+                // finishAffinity(requireActivity())
+            }
             alertDialog = build.create()
             alertDialog.show()
         }

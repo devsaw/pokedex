@@ -160,14 +160,6 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
         phoneNumberET = binding.phoneEditTextNumber
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        if (auth!!.currentUser != null) {
-//            sendToMain()
-//        }
-//    }
-
-
     inner class EditTextWatcher(private val view: View) : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
