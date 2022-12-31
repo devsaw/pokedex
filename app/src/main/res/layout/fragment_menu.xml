@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/foundColor"
-    tools:context=".dashboard.view.MenuFragment">
+    tools:context=".ui.dashboard.view.MenuFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/appCompatImageView"

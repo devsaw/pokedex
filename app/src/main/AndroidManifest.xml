@@ -20,31 +20,31 @@
         android:theme="@style/Theme.Pokedex"
         tools:targetApi="31">
         <activity
-            android:name=".menu.view.PixActivity"
+            android:name="br.digitalhouse.pokedex.ui.menu.view.PixActivity"
             android:exported="false" />
         <activity
-            android:name=".menu.view.PasswordActivity"
+            android:name="br.digitalhouse.pokedex.ui.menu.view.PasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".menu.view.PerfilActivity"
+            android:name="br.digitalhouse.pokedex.ui.menu.view.PerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".signin.view.ForgotPassActivity"
+            android:name="br.digitalhouse.pokedex.ui.signin.view.ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name=".signin.view.SmsActivity"
+            android:name="br.digitalhouse.pokedex.ui.signin.view.SmsActivity"
             android:exported="false" />
         <activity
-            android:name=".dashboard.view.DashBoardHostActivity"
+            android:name="br.digitalhouse.pokedex.ui.dashboard.view.DashBoardHostActivity"
             android:exported="false" />
         <activity
-            android:name=".intro.view.SlideHostActivity"
+            android:name="br.digitalhouse.pokedex.ui.intro.view.SlideHostActivity"
             android:exported="false" />
         <activity
-            android:name=".signin.view.SignInHostActivity"
+            android:name="br.digitalhouse.pokedex.ui.signin.view.SignInHostActivity"
             android:exported="false" />
         <activity
-            android:name=".intro.view.SplashScreenActivity"
+            android:name="br.digitalhouse.pokedex.ui.intro.view.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
