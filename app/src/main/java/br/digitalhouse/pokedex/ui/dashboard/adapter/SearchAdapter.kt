@@ -47,7 +47,7 @@ class SearchAdapter(private val context: Context,
             Glide
                 .with(context)
                 .load(imageURL)
-                .error(R.drawable.devtp)
+                .error(R.drawable.pokepng)
                 .into(foto)
 
             nome.text = listPokemon.nomePokemon

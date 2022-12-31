@@ -7,6 +7,7 @@
     android:backgroundTint="@color/foundColor">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -30,6 +31,15 @@
             android:textSize="12dp"
             tools:text="0001" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/stats"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="85dp"
+            tools:src="@drawable/ic_pokeball" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
+                android:layout_marginBottom="5dp"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 tools:text="Pokémon" />

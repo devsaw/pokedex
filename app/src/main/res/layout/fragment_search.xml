@@ -31,6 +31,7 @@
             android:layout_marginEnd="20dp"
             android:background="@color/white"
             android:focusable="true"
+            android:inputType="text"
             android:iconifiedByDefault="false"
             android:importantForAccessibility="yes"
             android:orientation="horizontal"
