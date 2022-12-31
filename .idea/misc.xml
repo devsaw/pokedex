@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable-v24/ic_baseline_search_24.xml" value="0.1775" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.155" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/badge_background.xml" value="0.204" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/edit_text_bg.xml" value="0.178" />
@@ -25,6 +26,7 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_bottom_nav.xml" value="0.155" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_cam_perfil.xml" value="0.1655" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_itens_menu.xml" value="0.1975" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_searchview.xml" value="0.1775" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/view_pager_background.xml" value="0.155" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_dash_board.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_dash_board_host.xml" value="0.10989583333333333" />
@@ -43,6 +45,7 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/alert_dialog_gallery_cam.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/alert_dialog_remove_acc.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/cardpokemon_layout.xml" value="0.25" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_home.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_login.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_menu.xml" value="0.264" />

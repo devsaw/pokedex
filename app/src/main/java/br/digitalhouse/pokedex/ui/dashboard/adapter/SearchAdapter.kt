@@ -12,16 +12,16 @@ import br.digitalhouse.pokedex.data.dto.ListPokemon
 import br.digitalhouse.pokedex.data.dto.PokemonObject
 import com.bumptech.glide.Glide
 
-class PokemonListAdapter(private val context: Context,
-                         private val results: MutableList<ListPokemon> = mutableListOf(),
-                         private val onItemClicked: (title: String, overviews: String, filmes: String) -> Unit) :
-    RecyclerView.Adapter<PokemonListAdapter.SearchViewHolder>() {
+class SearchAdapter(private val context: Context,
+                    private val results: MutableList<ListPokemon> = mutableListOf(),
+                    private val onItemClicked: (title: String, overviews: String, filmes: String) -> Unit) :
+    RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = SearchViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = SearchHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.cardpokemon_layout, parent, false)
     )
 
-    override fun onBindViewHolder(holder: SearchViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: SearchHolder, position: Int) =
         holder.bind(results[position])
 
 
@@ -34,7 +34,7 @@ class PokemonListAdapter(private val context: Context,
     }
 
 
-    inner class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class SearchHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val foto: ImageView = itemView.findViewById(R.id.imgPoke)
         private val nome: TextView = itemView.findViewById(R.id.textPoke)
         private val id: TextView = itemView.findViewById(R.id.idnum)

@@ -4,13 +4,19 @@
     <item
         android:title="Home"
         android:id="@+id/homeFragment"
-        android:icon="@drawable/devtp"
+        android:icon="@drawable/ic_pokeball"
         android:iconTint="@color/white"/>
 
     <item
-        android:title="Busca"
+        android:title="Buscar"
         android:id="@+id/searchFragment"
-        android:icon="@drawable/googlelogo"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:iconTint="@color/white"/>
+
+    <item
+        android:title="Favoritos"
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/ic_love"
         android:iconTint="@color/white"/>
 
     <item

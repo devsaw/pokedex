@@ -19,4 +19,9 @@
         android:name="br.digitalhouse.pokedex.ui.dashboard.view.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="br.digitalhouse.pokedex.ui.dashboard.view.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

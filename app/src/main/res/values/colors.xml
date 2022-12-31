@@ -12,4 +12,12 @@
     <color name="gradTwo">#B1E3FD</color>
     <color name="foundColor">#D5F1FF</color>
     <color name="YellowPoke">#FFD600</color>
+
+    <color name="fire">#FF3232</color>
+    <color name="water">#5987CD</color>
+    <color name="earth">#74A35B</color>
+    <color name="fly">#C1C5BF</color>
+    <color name="electric">#F7FF08</color>
+    <color name="psyc">#FFCCFE</color>
+    <color name="ice">#A3E6FF</color>
 </resources>
