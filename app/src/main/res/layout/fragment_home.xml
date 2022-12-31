@@ -23,8 +23,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView"
-            android:layout_width="250dp"
-            android:layout_height="70dp"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
             android:src="@drawable/pokepng"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="80dp"
             android:layout_marginEnd="16dp"
             android:clipToPadding="false"
             android:focusable="true"
@@ -46,8 +46,8 @@
 
             <ImageView
                 android:id="@+id/btnNotify"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_gravity="center"
                 android:src="@drawable/sino" />
 
@@ -123,13 +123,13 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTipos"
+        android:id="@+id/rvList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="70dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,7 +4,7 @@ import android.view.View
 import br.digitalhouse.pokedex.ui.signin.model.User
 
 
-interface RecyclerItemClickListener {
+interface ItemClickListener {
 
     fun onClickListenerItem(item: Any?){
         //optional body

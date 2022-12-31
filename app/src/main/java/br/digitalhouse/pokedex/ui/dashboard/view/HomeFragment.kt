@@ -1,22 +1,31 @@
 package br.digitalhouse.pokedex.ui.dashboard.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.FragmentHomeBinding
 import br.digitalhouse.pokedex.data.utils.Base64Custom
 import br.digitalhouse.pokedex.data.utils.ConfigFirebase
 import br.digitalhouse.pokedex.data.utils.Preferences
+import br.digitalhouse.pokedex.ui.dashboard.adapter.PokemonListAdapter
+import br.digitalhouse.pokedex.ui.dashboard.viewmodel.PokemonViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ValueEventListener
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+    private val pokemonViewModel: PokemonViewModel by viewModels()
     private val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private var auth: FirebaseAuth? = null
     lateinit var preferences: Preferences
+    private lateinit var pokeAdapter: PokemonListAdapter
     private var valueEventListener: ValueEventListener? = null
     private val firebaseRef = ConfigFirebase().getFirebase()
 
@@ -37,11 +46,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setData()
+        adapter()
         setOnClickListener()
     }
 
     private fun setOnClickListener() {
+        binding.btnNotify.setOnClickListener{
 
+        }
+    }
+
+    private fun adapter(){
+        pokeAdapter = PokemonListAdapter(requireContext(), onItemClicked = { titleMovie, overviews, pictures ->
+            val intent = Intent(requireContext(), DetailActivity::class.java)
+            intent.putExtra("title", titleMovie)
+            intent.putExtra("overview", overviews)
+            intent.putExtra("filmes", pictures)
+            startActivity(intent)
+        })
+        requireView().findViewById<RecyclerView>(R.id.rvList).adapter = pokeAdapter
+
+        lifecycleScope.launch{
+            val feed = pokemonViewModel.fetchPokemon()
+            pokeAdapter.update(feed)
+        }
     }
 
     private fun setData(){
