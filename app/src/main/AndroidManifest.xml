@@ -23,6 +23,9 @@
             android:name="br.digitalhouse.pokedex.ui.menu.view.PixActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.dashboard.view.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name="br.digitalhouse.pokedex.ui.menu.view.PasswordActivity"
             android:exported="false" />
         <activity

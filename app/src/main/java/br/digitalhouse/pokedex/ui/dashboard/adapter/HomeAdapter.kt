@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide
 
 class HomeAdapter(private val context: Context,
                   private val results: MutableList<ListPokemon> = mutableListOf(),
-                  private val onItemClicked: (title: String, overviews: String, filmes: String) -> Unit) :
+                  private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String) -> Unit) :
     RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = HomeHolder(
@@ -25,7 +25,7 @@ class HomeAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
         holder.itemView.rootView.setOnClickListener{
-            onItemClicked.invoke(results[position].imgPokemon, results[position].nomePokemon, results[position].pesoPokemon )
+            onItemClicked.invoke(results[position].nomePokemon, results[position].num, results[position].imgPokemon, results[position].alturaPokemon, results[position].pesoPokemon,)
         }
 
         Glide
