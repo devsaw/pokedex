@@ -38,47 +38,47 @@ class HomeAdapter(private val context: Context,
         holder.id.text = results[position].num
 
         if (results[position].typePokemon[0] == "Fire"){
-            holder.card.background.setTint(Color.parseColor("#FF3232"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.card.background.setTint(Color.parseColor("#FF5C34"))
+            holder.stats.setImageResource(R.drawable.fire)
         }else if(results[position].typePokemon[0] == "Water"){
             holder.card.background.setTint(Color.parseColor("#30B6FE"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.stats.setImageResource(R.drawable.water)
         }else if(results[position].typePokemon[0] == "Grass"){
             holder.card.background.setTint(Color.parseColor("#64DD17"))
-            holder.stats.setImageResource(R.drawable.pokepng)
+            holder.stats.setImageResource(R.drawable.grass)
         }else if(results[position].typePokemon[0] == "Electric"){
             holder.card.background.setTint(Color.parseColor("#FFDE08"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.stats.setImageResource(R.drawable.electric)
         }else if(results[position].typePokemon[0] == "Flying"){
             holder.card.background.setTint(Color.parseColor("#F7FF08"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.stats.setImageResource(R.drawable.flying)
         }else if(results[position].typePokemon[0] == "Ice"){
-            holder.card.background.setTint(Color.parseColor("#A3E6FF"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.card.background.setTint(Color.parseColor("#59D8C5"))
+            holder.stats.setImageResource(R.drawable.ice)
         }else if(results[position].typePokemon[0] == "Psychic"){
-            holder.card.background.setTint(Color.parseColor("#FFCCFE"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.card.background.setTint(Color.parseColor("#ED5484"))
+            holder.stats.setImageResource(R.drawable.psyc)
         }else if(results[position].typePokemon[0] == "Rock"){
-            holder.card.background.setTint(Color.parseColor("#555555"))
-            holder.stats.setImageResource(R.drawable.ash)
-        }else if(results[position].typePokemon[0] == "Normal"){
             holder.card.background.setTint(Color.parseColor("#ECD3AE"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.stats.setImageResource(R.drawable.rock)
+        }else if(results[position].typePokemon[0] == "Normal"){
+            holder.card.background.setTint(Color.parseColor("#555555"))
+            holder.stats.setImageResource(R.drawable.normal)
         }else if(results[position].typePokemon[0] == "Poison" || results[position].typePokemon[0] == "Bug"){
             holder.card.background.setTint(Color.parseColor("#BBFF00"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.stats.setImageResource(R.drawable.poison)
         }else if(results[position].typePokemon[0] == "Fighting"){
-            holder.card.background.setTint(Color.parseColor("#9F6969"))
+            holder.card.background.setTint(Color.parseColor("#913B3B"))
             holder.stats.setImageResource(R.drawable.fighting)
         }else if(results[position].typePokemon[0] == "Ground"){
-            holder.card.background.setTint(Color.parseColor("#009884"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.card.background.setTint(Color.parseColor("#FFA200"))
+            holder.stats.setImageResource(R.drawable.ground)
         }else if(results[position].typePokemon[0] == "Ghost"){
             holder.card.background.setTint(Color.parseColor("#E39FFD"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.stats.setImageResource(R.drawable.ghost)
         }else if(results[position].typePokemon[0] == "Dragon"){
-            holder.card.background.setTint(Color.parseColor("#FFA200"))
-            holder.stats.setImageResource(R.drawable.ash)
+            holder.card.background.setTint(Color.parseColor("#5294B4"))
+            holder.stats.setImageResource(R.drawable.dragon)
         }else{
             holder.card.background.setTint(Color.parseColor("#FFFFFFFF"))
             holder.stats.setImageResource(R.drawable.ic_pokeballsvg)
@@ -93,7 +93,6 @@ class HomeAdapter(private val context: Context,
         this.results.addAll(pokemonObject.listPokemon)
         this.notifyDataSetChanged()
     }
-
 
     inner class HomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val foto: ImageView = itemView.findViewById(R.id.imgPoke)

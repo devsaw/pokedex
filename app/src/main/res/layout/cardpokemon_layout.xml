@@ -26,17 +26,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="18dp"
             android:textColor="@color/black"
             android:textSize="12dp"
             tools:text="0001" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/stats"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="85dp"
             tools:src="@drawable/ic_pokeball" />
 
@@ -47,7 +47,7 @@
             android:layout_marginEnd="16dp"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/imgPoke"
                 android:layout_width="130dp"
                 android:layout_height="130dp"

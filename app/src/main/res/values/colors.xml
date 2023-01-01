@@ -10,21 +10,21 @@
     <color name="bluePoke">#30B6FE</color>
     <color name="gradOne">#6CCCFF</color>
     <color name="gradTwo">#B1E3FD</color>
-    <color name="foundColor">#D5F1FF</color>
+    <color name="foundColor">#F3F3F3</color>
     <color name="YellowPoke">#FFD600</color>
 
-    <color name="fire">#FF3232</color>
+    <color name="fire">#FF5C34</color>
     <color name="water">#30B6FE</color>
     <color name="grass">#64DD17</color>
     <color name="fly">#C1C5BF</color>
     <color name="electric">#FFDE08</color>
-    <color name="psyc">#FFCCFE</color>
-    <color name="ice">#A3E6FF</color>
+    <color name="psyc">#ED5484</color>
+    <color name="ice">#59D8C5</color>
     <color name="rock">#555555</color>
     <color name="normal">#ECD3AE</color>
     <color name="posion">#BBFF00</color>
-    <color name="fighting">#9F6969</color>
+    <color name="fighting">#913B3B</color>
     <color name="ground">#009884</color>
-    <color name="dragon">#FFA200</color>
+    <color name="dragon">#5294B4</color>
     <color name="ghost">#E39FFD</color>
 </resources>
