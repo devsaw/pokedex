@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide
 
 class HomeAdapter(private val context: Context,
                   private val results: MutableList<ListPokemon> = mutableListOf(),
-                  private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String) -> Unit) :
+                  private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String, type: String, weaknesses: String, prevEvo: String, nextEvo: String) -> Unit) :
     RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = HomeHolder(
@@ -24,9 +24,27 @@ class HomeAdapter(private val context: Context,
     )
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
-        holder.itemView.rootView.setOnClickListener{
-            onItemClicked.invoke(results[position].nomePokemon, results[position].num, results[position].imgPokemon, results[position].alturaPokemon, results[position].pesoPokemon,)
+        for (i in results[position].prevEvolution){
+            i.namePrevEvolution
+            for (res in results[position].nextEvolution.indices) {
+                val listPrev = mutableListOf<String>()
+                listPrev.add(i.namePrevEvolution)
+                holder.itemView.rootView.setOnClickListener {
+                    onItemClicked.invoke(
+                        results[position].nomePokemon,
+                        results[position].num,
+                        results[position].imgPokemon,
+                        results[position].alturaPokemon,
+                        results[position].pesoPokemon,
+                        results[position].typePokemon[0],
+                        results[position].pontosFracosPokemon[0],
+                        listPrev.,
+                        results[position].nextEvolution[res].nameNextEvolution
+                    )
+                }
+            }
         }
+
 
         Glide
             .with(context)

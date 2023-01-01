@@ -57,17 +57,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun adapter(){
-        pokeAdapter = HomeAdapter(requireContext(), onItemClicked = { name, num, image, height, weight ->
+        pokeAdapter = HomeAdapter(requireContext(), onItemClicked = { name, num, image, height, weight, type, weaknesses, prevEvo, nextEvo ->
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("name", name)
             intent.putExtra("num", num)
             intent.putExtra("image", image)
             intent.putExtra("height", height)
             intent.putExtra("weight", weight)
-//            intent.putExtra("type", type)
-//            intent.putExtra("weaknesses", weaknesses)
-//            intent.putExtra("prevEvo", prevEvo)
-//            intent.putExtra("nextEvoEvo", nextEvo)
+            intent.putExtra("type", type)
+            intent.putExtra("weaknesses", weaknesses)
+            intent.putExtra("prevEvo", prevEvo)
+            intent.putExtra("nextEvo", nextEvo)
             startActivity(intent)
         })
         requireView().findViewById<RecyclerView>(R.id.rvList).adapter = pokeAdapter

@@ -186,6 +186,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/layPrev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -212,11 +213,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_gravity="end"
-            android:gravity="end"
             android:orientation="vertical">
 
             <TextView
