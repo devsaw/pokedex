@@ -28,12 +28,12 @@ data class ListPokemon(
     val nomePokemon: String,
 
     @SerializedName("next_evolution")
-    val nextEvolution: List<NextEvolution>,
+    val nextEvolution: List<NextEvolution>?,
 
     val num: String,
 
     @SerializedName("prev_evolution")
-    val prevEvolution: List<PrevEvolution>,
+    val prevEvolution: List<PrevEvolution>?,
 
     val spawn_chance: Double,
     val spawn_time: String,

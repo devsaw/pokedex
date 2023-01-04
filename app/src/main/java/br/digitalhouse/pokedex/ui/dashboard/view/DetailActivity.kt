@@ -33,8 +33,9 @@ class DetailActivity : AppCompatActivity() {
         val weight = extra.getString("weight")
         val type = extra.getString("type")
         val weaknesses = extra.getString("weaknesses")
-        val prevEvo = extra.getString("prevEvo")
-        val nextEvo = extra.getString("nextEvo")
+        val prevEvo = extra.getString("prevevo")
+        val nextEvo = extra.getString("nextevo")
+
         binding.name.text = name
         binding.num.text = num
         binding.height.text = height

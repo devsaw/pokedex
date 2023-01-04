@@ -57,7 +57,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun adapter(){
-        pokeAdapter = HomeAdapter(requireContext(), onItemClicked = { name, num, image, height, weight, type, weaknesses, prevEvo, nextEvo ->
+        pokeAdapter = HomeAdapter(requireContext(), onItemClicked = { name, num, image, height, weight, type, weaknesses, prevevo, nextevo ->
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("name", name)
             intent.putExtra("num", num)
@@ -66,8 +66,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             intent.putExtra("weight", weight)
             intent.putExtra("type", type)
             intent.putExtra("weaknesses", weaknesses)
-            intent.putExtra("prevEvo", prevEvo)
-            intent.putExtra("nextEvo", nextEvo)
+            intent.putExtra("prevevo", prevevo)
+            intent.putExtra("nextevo", nextevo)
             startActivity(intent)
         })
         requireView().findViewById<RecyclerView>(R.id.rvList).adapter = pokeAdapter
@@ -93,7 +93,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 //            override fun onCancelled(error: DatabaseError) {}
 //        })
 
-            if (userAuth.email != null && phone.isNullOrEmpty()){
+        if (userAuth.email != null && phone.isNullOrEmpty()){
             binding.textGoogle.visibility = View.VISIBLE
             binding.textGoogle.text = FirebaseAuth.getInstance().currentUser!!.displayName.toString()
         } else if (phone!!.isNotEmpty()){

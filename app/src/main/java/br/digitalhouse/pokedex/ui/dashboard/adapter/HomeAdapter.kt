@@ -16,19 +16,31 @@ import com.bumptech.glide.Glide
 
 class HomeAdapter(private val context: Context,
                   private val results: MutableList<ListPokemon> = mutableListOf(),
-                  private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String, type: String, weaknesses: String, prevEvo: String, nextEvo: String) -> Unit) :
+                  private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String, type: String, weaknesses: String, prevevo: String, nextevo: String) -> Unit) :
     RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
+
+    private var iResult = ""
+    private var hResult = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = HomeHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.cardpokemon_layout, parent, false)
     )
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
-        for (i in results[position].prevEvolution){
-            i.namePrevEvolution
-            for (res in results[position].nextEvolution.indices) {
-                val listPrev = mutableListOf<String>()
-                listPrev.add(i.namePrevEvolution)
+//        for (i in results[position].prevEvolution!!){
+//            if (!results[position].prevEvolution.isNullOrEmpty()){
+//                iResult = i.namePrevEvolution
+//            }else{
+//                iResult = ""
+//            }
+//
+//            for (h in results[position].nextEvolution!!) {
+//                if (!results[position].nextEvolution.isNullOrEmpty()){
+//                    hResult = h.nameNextEvolution
+//                }else{
+//                    hResult = ""
+//                }
+
                 holder.itemView.rootView.setOnClickListener {
                     onItemClicked.invoke(
                         results[position].nomePokemon,
@@ -38,12 +50,12 @@ class HomeAdapter(private val context: Context,
                         results[position].pesoPokemon,
                         results[position].typePokemon[0],
                         results[position].pontosFracosPokemon[0],
-                        listPrev.,
-                        results[position].nextEvolution[res].nameNextEvolution
+                        iResult,
+                        hResult
                     )
                 }
-            }
-        }
+//            }
+//        }
 
 
         Glide
