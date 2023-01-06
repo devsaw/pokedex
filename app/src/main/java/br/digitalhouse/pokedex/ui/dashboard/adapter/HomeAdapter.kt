@@ -29,31 +29,29 @@ class HomeAdapter(
     )
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
-        if (results[position].prevEvolution != null){
-            for (iEvo in results[position].prevEvolution!!){
-                if (iEvo.namePrevEvolution.get(0).toString() == results[position].nomePokemon){
-                    pEvo = ""
-                } else{
-                    pEvo = iEvo.namePrevEvolution.get(0).toString()
-                }
-            }
-        }else{
-            pEvo = ""
-        }
-
-        if (results[position].nextEvolution != null){
-            for (rEvo in results[position].nextEvolution!!){
-                if (rEvo.nameNextEvolution.get(0).toString() == results[position].nomePokemon){
-                    nEvo = ""
-                }else{
-                    nEvo = rEvo.nameNextEvolution.get(0).toString()
-                }
-            }
-        }else{
-            nEvo = ""
-        }
-
         holder.itemView.rootView.setOnClickListener {
+            if (results[position].prevEvolution != null){
+                for (iEvo in results[position].prevEvolution!!){
+                    if (iEvo.namePrevEvolution == results[position].nomePokemon){
+                        pEvo = ""
+                    } else{
+                        pEvo = iEvo.namePrevEvolution
+                    }
+                }
+            }else{
+                pEvo = ""
+            }
+
+            if (results[position].nextEvolution != null){
+                if (results[position].nextEvolution!![0].nameNextEvolution == results[position].nomePokemon){
+                        nEvo = ""
+                    }else{
+                        nEvo = results[position].nextEvolution!![0].nameNextEvolution
+                    }
+            }else{
+                nEvo = ""
+            }
+
             onItemClicked.invoke(
                 results[position].nomePokemon,
                 results[position].num,

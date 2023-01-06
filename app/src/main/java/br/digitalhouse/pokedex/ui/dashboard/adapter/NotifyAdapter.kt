@@ -16,9 +16,9 @@ class NotifyAdapter(private val mNotificacao: List<Notify>):
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = mNotificacao[position].title
-        holder.descript.text = mNotificacao[position].description
-        holder.date.text = mNotificacao[position].date
+        holder.title.text = mNotificacao[position].list!![0].title
+        holder.descript.text = mNotificacao[position].list!![0].description
+        holder.date.text = mNotificacao[position].list!![0].date
     }
 
     override fun getItemCount(): Int {
