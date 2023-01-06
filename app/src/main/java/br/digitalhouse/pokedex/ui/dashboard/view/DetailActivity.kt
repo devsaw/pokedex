@@ -130,13 +130,13 @@ class DetailActivity : AppCompatActivity() {
             binding.weaknesses.setImageResource(R.drawable.ic_pokeballsvg)
         }
 
-        if (prevEvo!!.isEmpty()){
+        if (prevEvo!!.isNullOrEmpty()){
             binding.layPrev.visibility = View.GONE
         } else{
             binding.prevEvo.text = prevEvo
         }
 
-        if (nextEvo!!.isEmpty()){
+        if (nextEvo!!.isNullOrEmpty()){
             binding.layNext.visibility = View.GONE
         }else{
             binding.nextEvo.text = nextEvo

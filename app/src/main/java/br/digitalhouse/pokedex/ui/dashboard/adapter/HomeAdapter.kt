@@ -14,49 +14,52 @@ import br.digitalhouse.pokedex.data.dto.ListPokemon
 import br.digitalhouse.pokedex.data.dto.PokemonObject
 import com.bumptech.glide.Glide
 
-class HomeAdapter(private val context: Context,
-                  private val results: MutableList<ListPokemon> = mutableListOf(),
-                  private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String, type: String, weaknesses: String, prevevo: String, nextevo: String) -> Unit) :
+class HomeAdapter(
+    private val context: Context,
+    private val results: MutableList<ListPokemon> = mutableListOf(),
+    private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String, type: String, weaknesses: String, prevevo: String, nextevo: String) -> Unit
+) :
     RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
-    private var iResult = ""
-    private var hResult = ""
+    private var pEvo = ""
+    private var nEvo = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = HomeHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.cardpokemon_layout, parent, false)
     )
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
-//        for (i in results[position].prevEvolution!!){
-//            if (!results[position].prevEvolution.isNullOrEmpty()){
-//                iResult = i.namePrevEvolution
-//            }else{
-//                iResult = ""
-//            }
-//
-//            for (h in results[position].nextEvolution!!) {
-//                if (!results[position].nextEvolution.isNullOrEmpty()){
-//                    hResult = h.nameNextEvolution
-//                }else{
-//                    hResult = ""
-//                }
+        if (results[position].prevEvolution != null){
+           // results[position].prevEvolution?.get(0)!!.namePrevEvolution
+            if (results[position].prevEvolution?.get(0)!!.namePrevEvolution != results[position].nomePokemon){
+                pEvo = results[position].prevEvolution?.get(0)!!.namePrevEvolution
+            } else{
+                pEvo = ""
+            }
+        }
 
-                holder.itemView.rootView.setOnClickListener {
-                    onItemClicked.invoke(
-                        results[position].nomePokemon,
-                        results[position].num,
-                        results[position].imgPokemon,
-                        results[position].alturaPokemon,
-                        results[position].pesoPokemon,
-                        results[position].typePokemon[0],
-                        results[position].pontosFracosPokemon[0],
-                        iResult,
-                        hResult
-                    )
-                }
-//            }
-//        }
+        if (results[position].nextEvolution != null){
+           // results[position].nextEvolution?.get(0)!!.nameNextEvolution
+            if (results[position].nextEvolution?.get(0)!!.nameNextEvolution != results[position].nomePokemon){
+                nEvo = results[position].nextEvolution?.get(0)!!.nameNextEvolution
+            }else{
+                nEvo = ""
+            }
+        }
 
+        holder.itemView.rootView.setOnClickListener {
+            onItemClicked.invoke(
+                results[position].nomePokemon,
+                results[position].num,
+                results[position].imgPokemon,
+                results[position].alturaPokemon,
+                results[position].pesoPokemon,
+                results[position].typePokemon[0],
+                results[position].pontosFracosPokemon[0],
+                pEvo,
+                nEvo
+            )
+        }
 
         Glide
             .with(context)
@@ -67,49 +70,49 @@ class HomeAdapter(private val context: Context,
         holder.nome.text = results[position].nomePokemon
         holder.id.text = results[position].num
 
-        if (results[position].typePokemon[0] == "Fire"){
+        if (results[position].typePokemon[0] == "Fire") {
             holder.card.background.setTint(Color.parseColor("#FF5C34"))
             holder.stats.setImageResource(R.drawable.fire)
-        }else if(results[position].typePokemon[0] == "Water"){
+        } else if (results[position].typePokemon[0] == "Water") {
             holder.card.background.setTint(Color.parseColor("#30B6FE"))
             holder.stats.setImageResource(R.drawable.water)
-        }else if(results[position].typePokemon[0] == "Grass"){
+        } else if (results[position].typePokemon[0] == "Grass") {
             holder.card.background.setTint(Color.parseColor("#64DD17"))
             holder.stats.setImageResource(R.drawable.grass)
-        }else if(results[position].typePokemon[0] == "Electric"){
+        } else if (results[position].typePokemon[0] == "Electric") {
             holder.card.background.setTint(Color.parseColor("#FFDE08"))
             holder.stats.setImageResource(R.drawable.electric)
-        }else if(results[position].typePokemon[0] == "Flying"){
+        } else if (results[position].typePokemon[0] == "Flying") {
             holder.card.background.setTint(Color.parseColor("#F7FF08"))
             holder.stats.setImageResource(R.drawable.flying)
-        }else if(results[position].typePokemon[0] == "Ice"){
+        } else if (results[position].typePokemon[0] == "Ice") {
             holder.card.background.setTint(Color.parseColor("#59D8C5"))
             holder.stats.setImageResource(R.drawable.ice)
-        }else if(results[position].typePokemon[0] == "Psychic"){
+        } else if (results[position].typePokemon[0] == "Psychic") {
             holder.card.background.setTint(Color.parseColor("#ED5484"))
             holder.stats.setImageResource(R.drawable.psyc)
-        }else if(results[position].typePokemon[0] == "Rock"){
+        } else if (results[position].typePokemon[0] == "Rock") {
             holder.card.background.setTint(Color.parseColor("#ECD3AE"))
             holder.stats.setImageResource(R.drawable.rock)
-        }else if(results[position].typePokemon[0] == "Normal"){
+        } else if (results[position].typePokemon[0] == "Normal") {
             holder.card.background.setTint(Color.parseColor("#555555"))
             holder.stats.setImageResource(R.drawable.normal)
-        }else if(results[position].typePokemon[0] == "Poison" || results[position].typePokemon[0] == "Bug"){
+        } else if (results[position].typePokemon[0] == "Poison" || results[position].typePokemon[0] == "Bug") {
             holder.card.background.setTint(Color.parseColor("#BBFF00"))
             holder.stats.setImageResource(R.drawable.poison)
-        }else if(results[position].typePokemon[0] == "Fighting"){
+        } else if (results[position].typePokemon[0] == "Fighting") {
             holder.card.background.setTint(Color.parseColor("#913B3B"))
             holder.stats.setImageResource(R.drawable.fighting)
-        }else if(results[position].typePokemon[0] == "Ground"){
+        } else if (results[position].typePokemon[0] == "Ground") {
             holder.card.background.setTint(Color.parseColor("#FFA200"))
             holder.stats.setImageResource(R.drawable.ground)
-        }else if(results[position].typePokemon[0] == "Ghost"){
+        } else if (results[position].typePokemon[0] == "Ghost") {
             holder.card.background.setTint(Color.parseColor("#E39FFD"))
             holder.stats.setImageResource(R.drawable.ghost)
-        }else if(results[position].typePokemon[0] == "Dragon"){
+        } else if (results[position].typePokemon[0] == "Dragon") {
             holder.card.background.setTint(Color.parseColor("#5294B4"))
             holder.stats.setImageResource(R.drawable.dragon)
-        }else{
+        } else {
             holder.card.background.setTint(Color.parseColor("#FFFFFFFF"))
             holder.stats.setImageResource(R.drawable.ic_pokeballsvg)
         }
