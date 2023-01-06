@@ -52,7 +52,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setOnClickListener() {
         binding.btnNotify.setOnClickListener{
-
+            startActivity(Intent(requireContext(), NotifyActivity::class.java))
         }
     }
 

@@ -30,21 +30,27 @@ class HomeAdapter(
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
         if (results[position].prevEvolution != null){
-           // results[position].prevEvolution?.get(0)!!.namePrevEvolution
-            if (results[position].prevEvolution?.get(0)!!.namePrevEvolution != results[position].nomePokemon){
-                pEvo = results[position].prevEvolution?.get(0)!!.namePrevEvolution
-            } else{
-                pEvo = ""
+            for (iEvo in results[position].prevEvolution!!){
+                if (iEvo.namePrevEvolution.get(0).toString() == results[position].nomePokemon){
+                    pEvo = ""
+                } else{
+                    pEvo = iEvo.namePrevEvolution.get(0).toString()
+                }
             }
+        }else{
+            pEvo = ""
         }
 
         if (results[position].nextEvolution != null){
-           // results[position].nextEvolution?.get(0)!!.nameNextEvolution
-            if (results[position].nextEvolution?.get(0)!!.nameNextEvolution != results[position].nomePokemon){
-                nEvo = results[position].nextEvolution?.get(0)!!.nameNextEvolution
-            }else{
-                nEvo = ""
+            for (rEvo in results[position].nextEvolution!!){
+                if (rEvo.nameNextEvolution.get(0).toString() == results[position].nomePokemon){
+                    nEvo = ""
+                }else{
+                    nEvo = rEvo.nameNextEvolution.get(0).toString()
+                }
             }
+        }else{
+            nEvo = ""
         }
 
         holder.itemView.rootView.setOnClickListener {

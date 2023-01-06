@@ -35,6 +35,7 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_detail.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_forgot_pass.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_notify.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_password.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_perfil.xml" value="0.264" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_pix.xml" value="0.2359375" />
@@ -46,6 +47,7 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/alert_dialog.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/alert_dialog_gallery_cam.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/alert_dialog_remove_acc.xml" value="0.25" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/cardnotify_layout.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/cardpokemon_layout.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/fragment_home.xml" value="0.2359375" />
