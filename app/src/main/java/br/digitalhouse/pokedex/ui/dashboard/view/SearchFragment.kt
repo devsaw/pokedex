@@ -38,17 +38,17 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun adapter() {
-        rvSearchView = SearchAdapter(requireContext(), onItemClicked = { name, num, image, height, weight ->
+        rvSearchView = SearchAdapter(requireContext(), onItemClicked = { name, num, image, height, weight, type, weaknesses, prevevo, nextevo ->
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("name", name)
             intent.putExtra("num", num)
             intent.putExtra("image", image)
             intent.putExtra("height", height)
             intent.putExtra("weight", weight)
-//            intent.putExtra("type", type)
-//            intent.putExtra("weaknesses", weaknesses)
-//            intent.putExtra("prevEvo", prevEvo)
-//            intent.putExtra("nextEvoEvo", nextEvo)
+            intent.putExtra("type", type)
+            intent.putExtra("weaknesses", weaknesses)
+            intent.putExtra("prevevo", prevevo)
+            intent.putExtra("nextevo", nextevo)
             startActivity(intent)
         })
         requireView().findViewById<RecyclerView>(R.id.rvListSv).adapter = rvSearchView

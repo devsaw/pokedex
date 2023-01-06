@@ -14,10 +14,15 @@ import br.digitalhouse.pokedex.data.dto.ListPokemon
 import br.digitalhouse.pokedex.data.dto.PokemonObject
 import com.bumptech.glide.Glide
 
-class FavoriteAdapter(private val context: Context,
-                      private val results: MutableList<ListPokemon> = mutableListOf(),
-                      private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String) -> Unit) :
+class FavoriteAdapter(
+    private val context: Context,
+    private val results: MutableList<ListPokemon> = mutableListOf(),
+    private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String, type: String, weaknesses: String, prevevo: String, nextevo: String) -> Unit
+) :
     RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
+
+    private var pEvo = ""
+    private var nEvo = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = FavoriteHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.cardpokemon_layout, parent, false)
@@ -25,7 +30,39 @@ class FavoriteAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: FavoriteHolder, position: Int) {
         holder.itemView.rootView.setOnClickListener {
-            onItemClicked.invoke(results[position].nomePokemon, results[position].num, results[position].imgPokemon, results[position].alturaPokemon, results[position].pesoPokemon,)
+            if (results[position].prevEvolution != null) {
+                for (iEvo in results[position].prevEvolution!!) {
+                    if (iEvo.namePrevEvolution == results[position].nomePokemon) {
+                        pEvo = ""
+                    } else {
+                        pEvo = iEvo.namePrevEvolution
+                    }
+                }
+            } else {
+                pEvo = ""
+            }
+
+            if (results[position].nextEvolution != null) {
+                if (results[position].nextEvolution!![0].nameNextEvolution == results[position].nomePokemon) {
+                    nEvo = ""
+                } else {
+                    nEvo = results[position].nextEvolution!![0].nameNextEvolution
+                }
+            } else {
+                nEvo = ""
+            }
+
+            onItemClicked.invoke(
+                results[position].nomePokemon,
+                results[position].num,
+                results[position].imgPokemon,
+                results[position].alturaPokemon,
+                results[position].pesoPokemon,
+                results[position].typePokemon[0],
+                results[position].pontosFracosPokemon[0],
+                pEvo,
+                nEvo
+            )
         }
 
         Glide
