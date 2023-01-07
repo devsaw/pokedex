@@ -28,6 +28,20 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_background_img_menu.xml" value="0.1975" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_background_picture_menu.xml" value="0.172" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_bottom_nav.xml" value="0.155" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_dragon.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_electric.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_fighting.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_fire.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_flying.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_ghost.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_grass.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_ice.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_normal.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_poison.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_psychic.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_rock.xml" value="0.2095" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_button_fav_water.xml" value="0.2095" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_cam_perfil.xml" value="0.1655" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_detail.xml" value="0.152" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/shape_itens_menu.xml" value="0.1975" />
@@ -35,7 +49,7 @@
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/drawable/view_pager_background.xml" value="0.155" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_dash_board.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_dash_board_host.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_detail.xml" value="0.2359375" />
+        <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_detail.xml" value="0.176" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_forgot_pass.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/Users/saulo/Desktop/Pokedex/app/src/main/res/layout/activity_notify.xml" value="0.25" />
