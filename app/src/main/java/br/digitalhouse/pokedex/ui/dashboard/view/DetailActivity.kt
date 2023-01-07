@@ -22,6 +22,10 @@ class DetailActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener{
             finish()
         }
+
+        binding.fav.setOnClickListener{
+            binding.fav.setImageResource(R.drawable.ic_heartred)
+        }
     }
 
     private fun getData() {

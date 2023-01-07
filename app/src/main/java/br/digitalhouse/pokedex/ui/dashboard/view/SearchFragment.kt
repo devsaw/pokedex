@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import br.digitalhouse.pokedex.R
+import br.digitalhouse.pokedex.data.dto.ListPokemon
+import br.digitalhouse.pokedex.data.dto.PokemonObject
 import br.digitalhouse.pokedex.databinding.FragmentSearchBinding
 import br.digitalhouse.pokedex.ui.dashboard.adapter.SearchAdapter
 import br.digitalhouse.pokedex.ui.dashboard.viewmodel.PokemonViewModel
@@ -55,6 +57,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun searchView() {
+        val listPokemon : List<ListPokemon>
+        val listMatch : MutableList<String> = mutableListOf()
+       // listMatch.add(listPokemon)
+
+
         val searchView = binding.searchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             private var searchJob: Job? = null

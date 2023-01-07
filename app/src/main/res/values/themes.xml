@@ -3,10 +3,10 @@
     <style name="Theme.Pokedex" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/bluePoke</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/blackPoke</item>
+        <item name="colorOnPrimary">@color/bluePoke</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/YellowPoke</item>
+        <item name="colorSecondary">@color/yellowPoke</item>
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->

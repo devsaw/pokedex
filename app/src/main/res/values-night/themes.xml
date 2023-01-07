@@ -4,9 +4,9 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/bluePoke</item>
-        <item name="colorOnPrimary">@color/YellowPoke</item>
+        <item name="colorOnPrimary">@color/yellowPoke</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/YellowPoke</item>
+        <item name="colorSecondary">@color/yellowPoke</item>
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->

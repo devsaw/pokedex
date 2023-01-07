@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
         app:tabIndicatorColor="@color/white"
         app:tabIndicatorHeight="3dp"
-        app:tabTextColor="@color/YellowPoke"
+        app:tabTextColor="@color/yellowPoke"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

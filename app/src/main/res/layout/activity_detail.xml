@@ -78,18 +78,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="25sp"
             tools:text="Pokémon" />
+
+        <ImageView
+            android:id="@+id/fav"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_heartop" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="5dp"
         android:orientation="horizontal">
 
@@ -179,24 +193,18 @@
                 tools:src="@drawable/ic_pokeball" />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal">
-
         <LinearLayout
             android:id="@+id/layPrev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_marginStart="5dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:text="Evolução anterior" />
@@ -216,7 +224,8 @@
             android:id="@+id/layNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
             android:orientation="vertical">
 
             <TextView
@@ -236,7 +245,6 @@
                 android:textSize="18sp"
                 tools:text="Pokémon" />
         </LinearLayout>
-    </LinearLayout>
 
     </LinearLayout>
 
