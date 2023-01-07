@@ -46,5 +46,9 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite){
         requireView().findViewById<RecyclerView>(R.id.rvListFavorite).adapter = rvFavAdapter
     }
 
+    override fun onPause() {
+        super.onPause()
+        requireActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
 
 }

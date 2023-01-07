@@ -57,6 +57,7 @@ class MenuFragment : Fragment() {
     private fun setOnClickListener() {
         binding.meuPerfil.setOnClickListener {
             startActivity(Intent(requireContext(), PerfilActivity::class.java))
+
         }
 
         binding.alterarSenha.setOnClickListener {
@@ -131,6 +132,11 @@ class MenuFragment : Fragment() {
             .load(fotoUser)
             .error(R.drawable.ash)
             .into(binding.imageViewClient)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        requireActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 }
 

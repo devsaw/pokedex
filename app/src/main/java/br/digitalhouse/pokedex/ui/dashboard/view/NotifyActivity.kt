@@ -30,4 +30,9 @@ class NotifyActivity : AppCompatActivity() {
 //        adapter = NotifyAdapter(list)
 //        findViewById<RecyclerView>(R.id.rvListNotify).adapter = adapter
 //    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
 }

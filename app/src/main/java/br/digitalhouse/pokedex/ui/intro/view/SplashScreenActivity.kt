@@ -36,4 +36,13 @@ class SplashScreenActivity : AppCompatActivity() {
         }
     }
 
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
 }

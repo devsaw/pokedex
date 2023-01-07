@@ -105,4 +105,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        requireActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
+
 }

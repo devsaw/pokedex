@@ -22,4 +22,9 @@ class DashBoardHostActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_container)
         setupWithNavController(binding.bottomNavigation, navController)
     }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
 }

@@ -104,4 +104,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             binding.textLogin.text = preferences.getInforUserName()
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+        requireActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
+
 }

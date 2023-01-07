@@ -182,4 +182,9 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
             }
         }
     }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
 }
