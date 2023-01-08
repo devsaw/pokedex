@@ -113,7 +113,7 @@
             android:paddingStart="20dp"
             android:paddingTop="15dp"
             android:singleLine="true"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +147,7 @@
             android:paddingEnd="2dp"
             android:paddingTop="15dp"
             android:singleLine="true"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -164,6 +164,6 @@
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.470" />
+        app:layout_constraintVertical_bias="0.280" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

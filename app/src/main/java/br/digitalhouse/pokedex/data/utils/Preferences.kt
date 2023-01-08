@@ -29,9 +29,9 @@ class Preferences(context: Context?) {
         } else null.toString()
     }
     fun getInforUserName(): String{
-        val email = preferences!!.getString("getDataName", "")
-        return if (email != null && email.isNotEmpty()) {
-            email
+        val name = preferences!!.getString("getDataName", "")
+        return if (name != null && name.isNotEmpty()) {
+            name
         } else null.toString()
     }
 

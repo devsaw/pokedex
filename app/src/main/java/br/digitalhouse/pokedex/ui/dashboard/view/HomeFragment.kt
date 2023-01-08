@@ -16,7 +16,10 @@ import br.digitalhouse.pokedex.data.utils.ConfigFirebase
 import br.digitalhouse.pokedex.data.utils.Preferences
 import br.digitalhouse.pokedex.ui.dashboard.adapter.HomeAdapter
 import br.digitalhouse.pokedex.ui.dashboard.viewmodel.PokemonViewModel
+import br.digitalhouse.pokedex.ui.signin.model.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.launch
 
@@ -79,10 +82,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setData(){
-        val phone = auth!!.currentUser!!.phoneNumber
-        val userAuth = auth!!.currentUser
-        val idUsuario = Base64Custom.codificarBase64(userAuth!!.email)
-        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario)
+        val phoneAuth = auth!!.currentUser!!.phoneNumber
+        val emailAuth = auth!!.currentUser!!.email
+//        val idUsuario = Base64Custom.codificarBase64(emailAuth)
+//        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario)
+//        val userClass = User()
 
 //        valueEventListener = nameUser.addValueEventListener(object : ValueEventListener {
 //            override fun onDataChange(snapshot: DataSnapshot) {
@@ -93,15 +97,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 //            override fun onCancelled(error: DatabaseError) {}
 //        })
 
-        if (userAuth.email != null && phone.isNullOrEmpty()){
-            binding.textGoogle.visibility = View.VISIBLE
-            binding.textGoogle.text = FirebaseAuth.getInstance().currentUser!!.displayName.toString()
-        } else if (phone!!.isNotEmpty()){
-            binding.textPhone.visibility = View.VISIBLE
-            binding.textPhone.text = "Mestre Pokémon"
-        } else {
+        if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
             binding.textLogin.visibility = View.VISIBLE
             binding.textLogin.text = preferences.getInforUserName()
+        } else if (emailAuth.isNullOrEmpty() && phoneAuth!!.isNotEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
+            binding.textPhone.visibility = View.VISIBLE
+            binding.textPhone.text = "Mestre Pokémon"
+        } else if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName!!.isNotEmpty()){
+            binding.textGoogle.visibility = View.VISIBLE
+            binding.textGoogle.text = FirebaseAuth.getInstance().currentUser!!.displayName.toString()
+        } else{
+            binding.textLogin.visibility = View.VISIBLE
+            binding.textLogin.text = "Mestre Pokémon"
         }
     }
 

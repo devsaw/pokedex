@@ -92,7 +92,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         autentication!!.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 binding.progressBar.visibility = View.GONE
-                if (auth!!.currentUser!!.isEmailVerified == true){
+                if (auth!!.currentUser!!.isEmailVerified){
                     Toast.makeText(requireContext(), "Logado!", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(requireContext(), DashBoardHostActivity::class.java))
                 } else{
