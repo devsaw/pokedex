@@ -2,6 +2,7 @@ package br.digitalhouse.pokedex.ui.signin.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -79,11 +80,18 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         ).addOnCompleteListener(requireActivity()) {
             if (it.isSuccessful) {
                 binding.progressBar.visibility = View.GONE
-                val idUsuario = Base64Custom.codificarBase64(usuario!!.email)
-                usuario!!.idUsuario = idUsuario
-                usuario!!.saveUser()
-                Toast.makeText(requireContext(), "Cadastro efetuado!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(requireContext(), SignInHostActivity::class.java))
+                auth!!.currentUser!!.sendEmailVerification()
+                    .addOnSuccessListener {
+                        val idUsuario = Base64Custom.codificarBase64(usuario!!.email)
+                        usuario!!.idUsuario = idUsuario
+                        usuario!!.saveUser()
+                        Toast.makeText(requireContext(), "Cadastro efetuado, verifique seu e-mail!", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(requireContext(), SignInHostActivity::class.java))
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "Erro ao se cadastrar!", Toast.LENGTH_LONG).show()
+                        Log.e("ERRO", "Erro ao se cadastrar, ${it.toString()}")
+                    }
             } else {
                 binding.progressBar.visibility = View.GONE
                 var excecao = ""
