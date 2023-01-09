@@ -68,7 +68,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite){
     }
 
     private fun deletDataFromFireBaseWithSwipe() {
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
@@ -78,21 +78,30 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite){
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val deletedCourse: PokemonsDataClass =
-                    taskList.get(viewHolder.adapterPosition)
+                val deletedCourse: PokemonsDataClass = taskList.get(viewHolder.adapterPosition)
 
-                val position = viewHolder.adapterPosition
+                //função para deletar do firebase
+                ConfigFirebase()
+                    .getDatabase()
+                    .child("favoritos")
+                    .child(ConfigFirebase().getIdUser() ?: "")
+                    .child(deletedCourse.idP!!)
+                    .removeValue()
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful){
+                            Toast.makeText(requireContext(), "Você libertou ${deletedCourse.nameP}", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(requireContext(), "Erro ao libertar ${deletedCourse.nameP}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "Erro ao libertar ${deletedCourse.nameP}", Toast.LENGTH_SHORT).show()
+                    }
 
                 taskList.removeAt(viewHolder.adapterPosition)
-
                 rvFavAdapter.notifyItemRemoved(viewHolder.adapterPosition)
-
-                Snackbar.make(binding.rvListFavorite, "Você abandonou " + deletedCourse.nameP, Snackbar.LENGTH_SHORT)
-                    .setAction(
-                        "",
-                        View.OnClickListener {
-                            taskList.add(position, deletedCourse)
-                            rvFavAdapter.notifyItemInserted(position) }).show() }
+                rvFavAdapter.notifyDataSetChanged()
+            }
         }).attachToRecyclerView(binding.rvListFavorite)
     }
 
