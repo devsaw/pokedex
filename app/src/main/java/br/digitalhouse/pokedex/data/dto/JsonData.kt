@@ -1,6 +1,9 @@
 package br.digitalhouse.pokedex.data.dto
 
+import android.os.Parcelable
+import br.digitalhouse.pokedex.data.utils.ConfigFirebase
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class PokemonObject(
     @SerializedName("pokemon")
@@ -62,4 +65,18 @@ data class NextEvolution(
 
     @SerializedName("num")
     val numNextEvolution: String
-)
+    )
+
+
+@Parcelize
+data class PokemonsDataClass(
+    var imageP: String? = null,
+    var elementP: String? = null,
+    var nameP: String? = null,
+    var numP: String? = null,
+    var idP: String? = null
+): Parcelable {
+    init {
+        this.idP = ConfigFirebase().getDatabase().push().key ?: ""
+    }
+}

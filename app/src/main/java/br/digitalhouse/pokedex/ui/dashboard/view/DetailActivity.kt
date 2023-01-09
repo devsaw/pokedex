@@ -9,17 +9,23 @@ import android.view.animation.BounceInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.Toast
 import br.digitalhouse.pokedex.R
+import br.digitalhouse.pokedex.data.dto.PokemonsDataClass
+import br.digitalhouse.pokedex.data.utils.ConfigFirebase
 import br.digitalhouse.pokedex.databinding.ActivityDetailBinding
 import com.bumptech.glide.Glide
 
 class DetailActivity : AppCompatActivity() {
     private val binding: ActivityDetailBinding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
+    private lateinit var task : PokemonsDataClass
+    private var type : String = ""
+    private var image : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         getData()
         setOnClickListener()
+        task = PokemonsDataClass()
     }
 
     override fun onResume() {
@@ -33,8 +39,9 @@ class DetailActivity : AppCompatActivity() {
         }
 
         binding.btnFav.setOnClickListener{
+            binding.progressBar.visibility = View.VISIBLE
             binding.fav.setImageResource(R.drawable.ic_heartred)
-            Toast.makeText(this, "Adicionado aos favoritos!", Toast.LENGTH_SHORT).show()
+            pushDataToFireBase()
         }
     }
 
@@ -42,10 +49,10 @@ class DetailActivity : AppCompatActivity() {
         val extra = intent.extras!!
         val name = extra.getString("name")
         val num = extra.getString("num")
-        val image = extra.getString("image")
+        image = extra.getString("image")!!
         val height = extra.getString("height")
         val weight = extra.getString("weight")
-        val type = extra.getString("type")
+        type = extra.getString("type")!!
         val weaknesses = extra.getString("weaknesses")
         val prevEvo = extra.getString("prevevo")
         val nextEvo = extra.getString("nextevo")
@@ -170,6 +177,30 @@ class DetailActivity : AppCompatActivity() {
         }else{
             binding.nextEvo.text = nextEvo
         }
+    }
+
+    private fun pushDataToFireBase(){
+        task.nameP = binding.name.text.toString()
+        task.numP = binding.num.text.toString()
+        task.imageP = image
+        task.elementP = type
+
+        ConfigFirebase()
+            .getDatabase()
+            .child("favoritos")
+            .child(ConfigFirebase().getIdUser() ?: "")
+            .child(task.idP!!)
+            .setValue(task)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful){
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this, "Adicionado aos favoritos!", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener {
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(this, "Erro ao adicionar!", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun animation(){

@@ -16,9 +16,6 @@ class ConfigFirebase {
         return referenciaFirebase
     }
 
-
-    //retorna a instancia do FirebaseAuth
-
     //retorna a instancia do FirebaseAuth
     fun getAuth(): FirebaseAuth? {
         if (autenticacao == null) {
@@ -26,4 +23,10 @@ class ConfigFirebase {
         }
         return autenticacao
     }
+
+    fun getDatabase() = FirebaseDatabase.getInstance().reference
+
+    fun getIdUser() = getAuth()!!.uid
+
+    fun isAutenticated() = getAuth()!!.currentUser != null
 }
