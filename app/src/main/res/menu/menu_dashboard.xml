@@ -14,7 +14,7 @@
         android:iconTint="@color/white"/>
 
     <item
-        android:title="Favoritos"
+        android:title="Capturados"
         android:id="@+id/favoriteFragment"
         android:icon="@drawable/ic_love"
         android:iconTint="@color/white"/>

@@ -67,7 +67,6 @@ data class NextEvolution(
     val numNextEvolution: String
     )
 
-
 @Parcelize
 data class PokemonsDataClass(
     var imageP: String? = null,
