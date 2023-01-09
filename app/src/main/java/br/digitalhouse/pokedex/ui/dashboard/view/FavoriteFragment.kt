@@ -40,6 +40,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite){
     }
 
     private fun getDataFromFireBase() {
+        //função para exibir dados do firebase
         ConfigFirebase()
             .getDatabase()
             .child("favoritos")
