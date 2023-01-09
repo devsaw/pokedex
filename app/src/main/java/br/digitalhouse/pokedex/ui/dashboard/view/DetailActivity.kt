@@ -19,6 +19,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var task : PokemonsDataClass
     private var type : String = ""
     private var image : String = ""
+    private var weaknesses : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +54,7 @@ class DetailActivity : AppCompatActivity() {
         val height = extra.getString("height")
         val weight = extra.getString("weight")
         type = extra.getString("type")!!
-        val weaknesses = extra.getString("weaknesses")
+        weaknesses = extra.getString("weaknesses")!!
         val prevEvo = extra.getString("prevevo")
         val nextEvo = extra.getString("nextevo")
 
@@ -184,6 +185,11 @@ class DetailActivity : AppCompatActivity() {
         task.numP = binding.num.text.toString()
         task.imageP = image
         task.elementP = type
+        task.heightP = binding.height.text.toString()
+        task.weightP = binding.weight.text.toString()
+        task.weaknessP = weaknesses
+        task.prevP = binding.prevEvo.text.toString()
+        task.nextP = binding.nextEvo.text.toString()
 
         ConfigFirebase()
             .getDatabase()

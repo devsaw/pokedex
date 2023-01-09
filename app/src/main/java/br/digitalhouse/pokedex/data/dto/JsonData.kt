@@ -74,6 +74,11 @@ data class PokemonsDataClass(
     var elementP: String? = null,
     var nameP: String? = null,
     var numP: String? = null,
+    var heightP: String? = null,
+    var weightP: String? = null,
+    var weaknessP: String? = null,
+    var prevP: String? = null,
+    var nextP: String? = null,
     var idP: String? = null
 ): Parcelable {
     init {

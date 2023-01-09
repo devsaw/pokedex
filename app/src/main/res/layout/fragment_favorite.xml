@@ -46,4 +46,30 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:listitem="@layout/cardpokemon_layout" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.500" />
+
+    <TextView
+        android:id="@+id/textViewList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Ainda não possui \n nenhum pokémon!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.250" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
