@@ -1,12 +1,14 @@
 package br.digitalhouse.pokedex.ui.signin.view
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import br.digitalhouse.pokedex.ui.dashboard.view.DashBoardHostActivity
@@ -114,6 +116,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 Toast.makeText(requireContext(), excecao, Toast.LENGTH_SHORT).show()
             }
         }
+        hideKeyboard(requireView())
+    }
+
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager = requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun googleSignIn(){

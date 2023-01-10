@@ -1,5 +1,7 @@
 package br.digitalhouse.pokedex.ui.signin.view
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.ui.signin.model.User
@@ -111,6 +114,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 Toast.makeText(requireContext(), excecao, Toast.LENGTH_LONG).show()
             }
         }
+        hideKeyboard(requireView())
+    }
+
+    private fun hideKeyboard(view: View) {
+        val inputMethodManager = requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     override fun onPause() {

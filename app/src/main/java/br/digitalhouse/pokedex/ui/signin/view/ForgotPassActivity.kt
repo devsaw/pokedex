@@ -1,9 +1,12 @@
 package br.digitalhouse.pokedex.ui.signin.view
 
+import android.app.Activity
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.ui.signin.model.User
@@ -68,7 +71,13 @@ class ForgotPassActivity : AppCompatActivity(R.layout.activity_forgot_pass) {
                     Toast.makeText(this, excecao, Toast.LENGTH_LONG).show()
                 }
             }
+            it.hideKeyboard()
         }
+    }
+
+    fun View.hideKeyboard() {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 
     override fun finish() {

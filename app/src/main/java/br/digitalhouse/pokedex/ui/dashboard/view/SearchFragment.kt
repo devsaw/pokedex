@@ -26,6 +26,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private val binding: FragmentSearchBinding by lazy { FragmentSearchBinding.inflate(layoutInflater) }
     lateinit var searchAdapter: SearchAdapter
     private val cList = mutableListOf<ListPokemon>()
+    private val pokemonViewModel: PokemonViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
