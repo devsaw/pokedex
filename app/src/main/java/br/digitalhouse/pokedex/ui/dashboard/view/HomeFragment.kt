@@ -19,9 +19,7 @@ import br.digitalhouse.pokedex.ui.dashboard.adapter.HomeAdapter
 import br.digitalhouse.pokedex.ui.dashboard.viewmodel.PokemonViewModel
 import br.digitalhouse.pokedex.ui.signin.model.User
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -49,9 +47,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       // setData()
         adapter()
         setOnClickListener()
+        validName()
     }
 
     private fun setOnClickListener() {
@@ -82,38 +80,27 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private fun setData(){
-        val emailAuth = auth!!.currentUser!!.email
-        val idUsuario = Base64Custom.codificarBase64(emailAuth)
-        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario)
+    private fun validName() {
+        // executa consulta no banco de dados passando pelos nós do firebase e compara com outro argumento
+        val searchParam: Query = FirebaseDatabase.getInstance().getReference("usuarios")
+            .child(ConfigFirebase().getIdUser() ?: "")
+            .orderByChild("email")
+            .equalTo(ConfigFirebase().isAutenticated())
 
-        valueEventListener = nameUser.addValueEventListener(object : ValueEventListener {
+        searchParam.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
-                if (snapshot.exists()){
+                if (snapshot.exists()) {
                     binding.textLogin.text = user!!.nome
                 } else{
                     binding.textLogin.text = "Mestre Pokémon"
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
-                Log.i("CANCEL", "NOME NÃO EXIBIDO onCancelled")
+                Log.i("CANCEL", "CONSULTA NO BANCO DO FIREBASE onCancelled")
             }
         })
-
-//        if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
-//            binding.textLogin.visibility = View.VISIBLE
-//            binding.textLogin.text = preferences.getInforUserName()
-//        } else if (emailAuth.isNullOrEmpty() && phoneAuth!!.isNotEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
-//            binding.textPhone.visibility = View.VISIBLE
-//            binding.textPhone.text = "Mestre Pokémon"
-//        } else if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName!!.isNotEmpty()){
-//            binding.textGoogle.visibility = View.VISIBLE
-//            binding.textGoogle.text = FirebaseAuth.getInstance().currentUser!!.displayName.toString()
-//        } else{
-//            binding.textLogin.visibility = View.VISIBLE
-//            binding.textLogin.text = "Mestre Pokémon"
-//        }
     }
 
     override fun onPause() {

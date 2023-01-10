@@ -48,13 +48,18 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite){
             .addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()){
-                        taskList.clear()
-                        for (snap in snapshot.children){
-                            val task = snap.getValue(PokemonsDataClass::class.java) as PokemonsDataClass
-                            taskList.add(task)
+                        try {
+                            taskList.clear()
+                            for (snap in snapshot.children){
+                                val task = snap.getValue(PokemonsDataClass::class.java) as PokemonsDataClass
+                                taskList.add(task)
+                            }
+                            taskList.reverse()
+                            adapter()
+                        }catch (e:Exception){
+                            Log.e("ERRO", "Exception")
                         }
-                        taskList.reverse()
-                        adapter()
+
                     } else{
                         binding.textViewList.visibility = View.VISIBLE
                     }

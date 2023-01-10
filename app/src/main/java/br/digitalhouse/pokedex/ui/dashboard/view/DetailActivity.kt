@@ -205,13 +205,13 @@ class DetailActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     binding.progressBar.visibility = View.GONE
-                    Toast.makeText(this, "Capturado!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "${name} Capturado!", Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }
             .addOnFailureListener {
                 binding.progressBar.visibility = View.GONE
-                Toast.makeText(this, "Falha ao capturar Pokémon!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Falha ao capturar ${name}!", Toast.LENGTH_SHORT).show()
             }
     }
 
