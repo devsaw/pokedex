@@ -42,14 +42,13 @@
         android:layout_height="130dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/shape_background_picture_menu"
+        app:shapeAppearance="@style/ImageViewCirclee"
         android:scaleType="centerCrop"
         android:src="@drawable/ash"
         app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
         app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/appCompatImageView"
         app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
-        app:shapeAppearance="@style/ImageViewCirclee"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -159,6 +158,7 @@
         android:id="@+id/progressBar"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"

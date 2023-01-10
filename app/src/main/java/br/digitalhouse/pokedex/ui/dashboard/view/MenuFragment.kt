@@ -2,6 +2,7 @@ package br.digitalhouse.pokedex.ui.dashboard.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,11 +21,13 @@ import br.digitalhouse.pokedex.ui.signin.view.SignInHostActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
 
 class MenuFragment : Fragment() {
     private val binding: FragmentMenuBinding by lazy { FragmentMenuBinding.inflate(layoutInflater) }
     private var auth: FirebaseAuth? = null
     private lateinit var alertDialog: AlertDialog
+    private lateinit var firebaseStorage: FirebaseStorage
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,8 +40,13 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
+        firebaseStorage = FirebaseStorage.getInstance()
         showButton()
         setOnClickListener()
+    }
+
+    override fun onResume() {
+        super.onResume()
         setImageClient()
     }
 
@@ -126,12 +134,18 @@ class MenuFragment : Fragment() {
     }
 
     private fun setImageClient() {
-        val fotoUser = auth!!.currentUser!!.photoUrl
-        Glide
-            .with(requireContext())
-            .load(fotoUser)
-            .error(R.drawable.ash)
-            .into(binding.imageViewClient)
+        try {
+            firebaseStorage.reference.child("usuarios/").child(auth!!.currentUser!!.uid)
+                .downloadUrl.addOnSuccessListener { uri ->
+                    Glide
+                        .with(requireContext())
+                        .load(uri)
+                        .error(R.drawable.ash)
+                        .into(binding.imageViewClient)
+                }
+        }catch (e: Exception){
+            Log.e("STORAGE", "USUARIO SEM LOGIN")
+        }
     }
 
     override fun onPause() {
