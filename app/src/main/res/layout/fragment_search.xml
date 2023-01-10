@@ -22,22 +22,30 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-        <SearchView
+        <ImageView
+            android:layout_width="24sp"
+            android:layout_height="24sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_baseline_search_24" />
+
+        <EditText
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="38dp"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:background="@color/white"
             android:focusable="true"
+            android:maxLength="25"
+            android:hint="Pesquisar..."
+            android:paddingStart="10dp"
             android:inputType="text"
             android:iconifiedByDefault="false"
             android:importantForAccessibility="yes"
             android:orientation="horizontal"
             android:queryBackground="@android:color/transparent"
-            android:queryHint="Pesquisar..."
-            android:textColorHint="@color/black" />
+            android:queryHint="Pesquisar..."/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

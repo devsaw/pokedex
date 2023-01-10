@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.FragmentHomeBinding
-import br.digitalhouse.pokedex.data.utils.Base64Custom
 import br.digitalhouse.pokedex.data.utils.ConfigFirebase
 import br.digitalhouse.pokedex.data.utils.Preferences
 import br.digitalhouse.pokedex.ui.dashboard.adapter.HomeAdapter
@@ -28,8 +27,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private var auth: FirebaseAuth? = null
     lateinit var preferences: Preferences
     private lateinit var pokeAdapter: HomeAdapter
-    private var valueEventListener: ValueEventListener? = null
-    private val firebaseRef = ConfigFirebase().getFirebase()
 
     override fun onCreateView(
         inflater: LayoutInflater,

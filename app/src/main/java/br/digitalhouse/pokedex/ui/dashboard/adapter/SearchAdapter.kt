@@ -2,9 +2,12 @@ package br.digitalhouse.pokedex.ui.dashboard.adapter
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -12,14 +15,24 @@ import androidx.recyclerview.widget.RecyclerView
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.data.dto.ListPokemon
 import br.digitalhouse.pokedex.data.dto.PokemonObject
+import br.digitalhouse.pokedex.data.dto.PokemonsDataClass
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SearchAdapter(
     private val context: Context,
-    private val results: MutableList<ListPokemon> = mutableListOf(),
+    private val results: ArrayList<ListPokemon>,
     private val onItemClicked: (name: String, num: String, image: String, height: String, weight: String, type: String, weaknesses: String, prevevo: String, nextevo: String) -> Unit
 ) :
-    RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
+    RecyclerView.Adapter<SearchAdapter.SearchHolder>(), Filterable {
+
+    var listFull = ArrayList<ListPokemon>()
+
+    init {
+        listFull = this.results
+    }
 
     private var pEvo = ""
     private var nEvo = ""
@@ -125,10 +138,41 @@ class SearchAdapter(
 
     override fun getItemCount(): Int = results.size
 
-    fun update(pokemonObject: PokemonObject) {
-        this.results.clear()
-        this.results.addAll(pokemonObject.listPokemon)
-        this.notifyDataSetChanged()
+    override fun getFilter(): Filter {
+        return filter
+    }
+
+    private val filter = object : Filter(){
+
+        override fun performFiltering(constraint: CharSequence?): FilterResults {
+            val resultList = ArrayList<ListPokemon>()
+            val charSearch = constraint.toString()
+            if (charSearch.isEmpty()) {
+                listFull = results
+            } else {
+
+                val filterPattern =
+                    constraint.toString().lowercase(Locale.getDefault()).trim { it <= ' ' }
+
+                results.filter {
+                    (it.nomePokemon.toLowerCase().contains(filterPattern))
+
+                }
+                    .forEach { resultList.add(it) }
+                listFull = resultList
+
+            }
+            val filterResults = FilterResults()
+            filterResults.values = listFull
+            return filterResults
+        }
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+            listFull = results?.values as ArrayList<ListPokemon>
+            Log.d("RETORNO", Gson().toJson(results))
+            notifyDataSetChanged()
+        }
+
     }
 
     inner class SearchHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
