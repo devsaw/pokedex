@@ -17,11 +17,7 @@ import com.google.firebase.database.*
 
 
 class DetailActivity : AppCompatActivity() {
-    private val binding: ActivityDetailBinding by lazy {
-        ActivityDetailBinding.inflate(
-            layoutInflater
-        )
-    }
+    private val binding: ActivityDetailBinding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
     private lateinit var task: PokemonsDataClass
     private var type: String = ""
     private var image: String = ""

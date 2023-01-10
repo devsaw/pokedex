@@ -2,6 +2,7 @@ package br.digitalhouse.pokedex.ui.dashboard.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,7 +49,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setData()
+       // setData()
         adapter()
         setOnClickListener()
     }
@@ -82,34 +83,37 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setData(){
-        val phoneAuth = auth!!.currentUser!!.phoneNumber
         val emailAuth = auth!!.currentUser!!.email
-//        val idUsuario = Base64Custom.codificarBase64(emailAuth)
-//        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario)
-//        val userClass = User()
+        val idUsuario = Base64Custom.codificarBase64(emailAuth)
+        val nameUser = firebaseRef!!.child("usuarios").child(idUsuario)
 
-//        valueEventListener = nameUser.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                val user = snapshot.getValue(User::class.java)
-//                binding.textLogin.visibility = View.VISIBLE
-//                binding.textLogin.text = user!!.nome
-//            }
-//            override fun onCancelled(error: DatabaseError) {}
-//        })
+        valueEventListener = nameUser.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(User::class.java)
+                if (snapshot.exists()){
+                    binding.textLogin.text = user!!.nome
+                } else{
+                    binding.textLogin.text = "Mestre Pokémon"
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.i("CANCEL", "NOME NÃO EXIBIDO onCancelled")
+            }
+        })
 
-        if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
-            binding.textLogin.visibility = View.VISIBLE
-            binding.textLogin.text = preferences.getInforUserName()
-        } else if (emailAuth.isNullOrEmpty() && phoneAuth!!.isNotEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
-            binding.textPhone.visibility = View.VISIBLE
-            binding.textPhone.text = "Mestre Pokémon"
-        } else if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName!!.isNotEmpty()){
-            binding.textGoogle.visibility = View.VISIBLE
-            binding.textGoogle.text = FirebaseAuth.getInstance().currentUser!!.displayName.toString()
-        } else{
-            binding.textLogin.visibility = View.VISIBLE
-            binding.textLogin.text = "Mestre Pokémon"
-        }
+//        if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
+//            binding.textLogin.visibility = View.VISIBLE
+//            binding.textLogin.text = preferences.getInforUserName()
+//        } else if (emailAuth.isNullOrEmpty() && phoneAuth!!.isNotEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName.isNullOrEmpty()){
+//            binding.textPhone.visibility = View.VISIBLE
+//            binding.textPhone.text = "Mestre Pokémon"
+//        } else if (emailAuth != null && phoneAuth.isNullOrEmpty() && FirebaseAuth.getInstance().currentUser!!.displayName!!.isNotEmpty()){
+//            binding.textGoogle.visibility = View.VISIBLE
+//            binding.textGoogle.text = FirebaseAuth.getInstance().currentUser!!.displayName.toString()
+//        } else{
+//            binding.textLogin.visibility = View.VISIBLE
+//            binding.textLogin.text = "Mestre Pokémon"
+//        }
     }
 
     override fun onPause() {
