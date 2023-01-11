@@ -63,7 +63,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutinesVersion"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
 
-    //firebase
+    //Firebase
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation 'com.google.firebase:firebase-messaging:23.1.1'
     implementation 'com.google.firebase:firebase-analytics-ktx'
@@ -76,9 +76,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-common-ktx:20.2.0'
     implementation 'com.google.android.gms:play-services-auth:20.4.0'
 
-    // Glide Images Apis
+    //Glide Images Apis
     def glideVersion = "4.13.2"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    //LottieFiles Animation
+    implementation 'com.airbnb.android:lottie:3.7.0'
 
 }

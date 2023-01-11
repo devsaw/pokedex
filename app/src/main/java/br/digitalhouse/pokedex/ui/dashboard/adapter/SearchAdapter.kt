@@ -141,7 +141,7 @@ class SearchAdapter(
     override fun getFilter(): Filter {
         return filter
     }
-
+    
     private val filter = object : Filter(){
 
         override fun performFiltering(constraint: CharSequence?): FilterResults {

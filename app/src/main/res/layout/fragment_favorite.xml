@@ -46,17 +46,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:listitem="@layout/cardpokemon_layout" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.500" />
-
     <TextView
         android:id="@+id/textViewList"
         android:layout_width="wrap_content"
@@ -71,5 +60,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.250" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/loading"
+        app:layout_constraintVertical_bias="0.300" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
