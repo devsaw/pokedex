@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.dashboard.view.NetWorkReceiverActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.signin.view.PdfViewerActivity"
             android:exported="false" />
         <activity
@@ -66,6 +69,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <receiver
+            android:name="br.digitalhouse.pokedex.data.utils.NetworkReceiver">
+        </receiver>
     </application>
 
 </manifest>

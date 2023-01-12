@@ -1,7 +1,9 @@
 package br.digitalhouse.pokedex.ui.dashboard.view
 
 import android.animation.ValueAnimator
+import android.content.IntentFilter
 import android.graphics.Color
+import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.data.dto.PokemonsDataClass
 import br.digitalhouse.pokedex.data.utils.ConfigFirebase
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import br.digitalhouse.pokedex.databinding.ActivityDetailBinding
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
@@ -37,6 +40,12 @@ class DetailActivity : AppCompatActivity() {
         super.onResume()
         binding.progressBar.visibility = View.GONE
         animation()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 
     private fun setOnClickListener() {

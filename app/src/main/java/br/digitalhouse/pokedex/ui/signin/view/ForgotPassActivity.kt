@@ -2,6 +2,8 @@ package br.digitalhouse.pokedex.ui.signin.view
 
 import android.app.Activity
 import android.content.Context
+import android.content.IntentFilter
+import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -11,6 +13,7 @@ import android.widget.Toast
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.ui.signin.model.User
 import br.digitalhouse.pokedex.data.utils.ConfigFirebase
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import br.digitalhouse.pokedex.databinding.ActivityForgotPassBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
@@ -83,6 +86,12 @@ class ForgotPassActivity : AppCompatActivity(R.layout.activity_forgot_pass) {
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 
 }

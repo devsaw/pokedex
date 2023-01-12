@@ -3,11 +3,13 @@ package br.digitalhouse.pokedex.ui.menu.view
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.net.Uri
+import android.net.wifi.WifiManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +27,7 @@ import br.digitalhouse.pokedex.databinding.ActivityPerfilBinding
 import br.digitalhouse.pokedex.ui.signin.model.User
 import br.digitalhouse.pokedex.data.utils.Base64Custom
 import br.digitalhouse.pokedex.data.utils.ConfigFirebase
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -276,6 +279,12 @@ class PerfilActivity : AppCompatActivity() {
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 
 }

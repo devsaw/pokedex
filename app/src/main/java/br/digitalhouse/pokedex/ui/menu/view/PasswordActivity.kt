@@ -1,6 +1,8 @@
 package br.digitalhouse.pokedex.ui.menu.view
 
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import br.digitalhouse.pokedex.R
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import br.digitalhouse.pokedex.databinding.ActivityPasswordBinding
 import br.digitalhouse.pokedex.ui.signin.view.SignInHostActivity
 import com.google.firebase.auth.*
@@ -95,5 +98,11 @@ class PasswordActivity : AppCompatActivity() {
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 }

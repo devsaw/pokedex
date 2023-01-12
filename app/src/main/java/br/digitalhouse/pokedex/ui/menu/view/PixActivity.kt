@@ -2,12 +2,15 @@ package br.digitalhouse.pokedex.ui.menu.view
 
 import android.content.ClipData
 import android.content.Context
+import android.content.IntentFilter
+import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.text.ClipboardManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.digitalhouse.pokedex.R
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import br.digitalhouse.pokedex.databinding.ActivityPixBinding
 
 class PixActivity : AppCompatActivity() {
@@ -45,5 +48,11 @@ class PixActivity : AppCompatActivity() {
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 }

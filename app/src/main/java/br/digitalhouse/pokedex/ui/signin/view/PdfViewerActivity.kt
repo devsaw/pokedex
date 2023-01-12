@@ -1,8 +1,11 @@
 package br.digitalhouse.pokedex.ui.signin.view
 
+import android.content.IntentFilter
+import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.digitalhouse.pokedex.R
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import br.digitalhouse.pokedex.databinding.ActivityPdfViewerBinding
 import com.danjdt.pdfviewer.PdfViewer
 import com.danjdt.pdfviewer.interfaces.OnErrorListener
@@ -58,5 +61,11 @@ class PdfViewerActivity : AppCompatActivity() {
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 }

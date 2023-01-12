@@ -1,6 +1,8 @@
 package br.digitalhouse.pokedex.ui.intro.view
 
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewGroup
@@ -12,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import br.digitalhouse.pokedex.ui.intro.adapter.SlideAdapter
 import br.digitalhouse.pokedex.ui.intro.model.SlideDataClass
 import br.digitalhouse.pokedex.R
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import br.digitalhouse.pokedex.ui.signin.view.SignInHostActivity
 import br.digitalhouse.pokedex.databinding.ActivitySlideHostBinding
 
@@ -107,5 +110,11 @@ class SlideHostActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 }

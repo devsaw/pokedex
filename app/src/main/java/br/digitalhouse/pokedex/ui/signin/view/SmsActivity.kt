@@ -2,6 +2,8 @@ package br.digitalhouse.pokedex.ui.signin.view
 
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -14,6 +16,7 @@ import android.widget.EditText
 import android.widget.Toast
 import br.digitalhouse.pokedex.ui.dashboard.view.DashBoardHostActivity
 import br.digitalhouse.pokedex.R
+import br.digitalhouse.pokedex.data.utils.NetworkReceiver
 import br.digitalhouse.pokedex.databinding.ActivitySmsBinding
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -195,5 +198,11 @@ class SmsActivity : AppCompatActivity(R.layout.activity_sms) {
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION)
+        registerReceiver(NetworkReceiver(), intentFilter)
     }
 }
