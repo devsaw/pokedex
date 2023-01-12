@@ -30,8 +30,8 @@ class SlideHostActivity : AppCompatActivity() {
     private fun setOnBoardingItems() {
         introSlideAdapter = SlideAdapter(
             listOf(
-                SlideDataClass(image = R.drawable.pokepng, description = "150 pokemons"),
-                SlideDataClass(image = R.drawable.pokepng, description = "Capture o seu!"),
+                SlideDataClass(image = R.drawable.pokepng, description = "Olá! Assim como Ash Ketchum, venha se tornar o maior treinador de pokémons que a cidade de Pallet já presenciou!"),
+                SlideDataClass(image = R.drawable.pokepng, description = "São 150 Pokémons para você explorar e obter conhecimento sobre suas características. Capture o seu!"),
             )
         )
         val slideViewPager = findViewById<ViewPager2>(R.id.fragment_onboarding_slide_viewpager)

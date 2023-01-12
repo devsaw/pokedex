@@ -35,6 +35,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        binding.progressBar.visibility = View.GONE
         animation()
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bluePoke"
+    android:background="@color/redex"
     tools:context=".ui.intro.view.SlideHostActivity">
 
     <androidx.viewpager2.widget.ViewPager2
@@ -51,14 +51,13 @@
         app:layout_constraintStart_toStartOf="@id/imageNext"
         app:layout_constraintTop_toTopOf="@id/imageNext"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imageNext"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="514dp"
-        android:background="@drawable/icon_background"
-        android:padding="17dp"
-        android:src="@drawable/ic_baseline_arrow_simple_right_ios_24"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/pokeballjson"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

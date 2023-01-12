@@ -73,6 +73,10 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
              usuario!!.senha = password
              createUser()
         }
+
+        binding.textTerms.setOnClickListener{
+            
+        }
     }
 
     private fun createUser() {
