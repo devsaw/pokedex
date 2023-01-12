@@ -39,10 +39,10 @@
             android:name="br.digitalhouse.pokedex.ui.menu.view.PerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPassActivity"
+            android:name=".ui.signin.view.ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name=".SmsActivity"
+            android:name=".ui.signin.view.SmsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.dashboard.view.DashBoardHostActivity"
@@ -51,7 +51,7 @@
             android:name="br.digitalhouse.pokedex.ui.intro.view.SlideHostActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInHostActivity"
+            android:name=".ui.signin.view.SignInHostActivity"
             android:exported="false" />
         <activity
             android:name="br.digitalhouse.pokedex.ui.intro.view.SplashScreenActivity"

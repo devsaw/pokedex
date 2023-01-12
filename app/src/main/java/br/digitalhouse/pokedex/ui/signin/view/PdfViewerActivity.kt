@@ -33,7 +33,7 @@ class PdfViewerActivity : AppCompatActivity() {
             .view(PdfViewerRecyclerView(this))
             .quality(PdfPageQuality.QUALITY_1080)
             .setZoomEnabled(true)
-            .setMaxZoom(3f) //zoom multiplier
+            .setMaxZoom(3f)
             .setOnPageChangedListener(object : OnPageChangedListener {
                 override fun onPageChanged(page: Int, total: Int) {
                     binding.tvCounter.text = getString(R.string.pdf_page_counter, page, total)
@@ -53,5 +53,10 @@ class PdfViewerActivity : AppCompatActivity() {
             })
             .build()
             .load(R.raw.pdftermos)
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.auth_main_enter, R.anim.auth_main_exit)
     }
 }
