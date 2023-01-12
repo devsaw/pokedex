@@ -4,7 +4,7 @@
     <item
         android:title="Home"
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_pokeball"
+        android:icon="@drawable/ic_home"
         android:iconTint="@color/white"/>
 
     <item
@@ -16,7 +16,7 @@
     <item
         android:title="Capturados"
         android:id="@+id/favoriteFragment"
-        android:icon="@drawable/ic_love"
+        android:icon="@drawable/ic_pokeball"
         android:iconTint="@color/white"/>
 
     <item

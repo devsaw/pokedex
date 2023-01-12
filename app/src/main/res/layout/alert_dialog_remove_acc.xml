@@ -21,22 +21,24 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView"
-            android:layout_width="280dp"
-            android:layout_height="100dp"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
             android:layout_marginTop="5dp"
             android:padding="7dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/pokepng" />
+            app:srcCompat="@drawable/excluir" />
 
         <TextView
             android:id="@+id/textAlertDialog"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
             android:layout_gravity="center"
             android:layout_marginStart="5dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:text="Tem certeza que deseja \n desativar a sua conta?"
+            android:text="Tem certeza que deseja \n excluir a sua conta?"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -50,6 +52,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:fontFamily="@font/lato"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -65,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
                 android:inputType="textPassword"
+                android:fontFamily="@font/lato"
                 android:maxLength="25" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,8 +85,10 @@
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="50dp"
+                android:background="@drawable/shape_button_cancel"
                 android:gravity="center"
                 android:text="Não"
+                android:fontFamily="@font/lato"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -95,8 +101,10 @@
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="100dp"
+                android:background="@drawable/shape_button_cancel"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
+                android:fontFamily="@font/lato"
                 android:text="Sim"
                 android:textColor="@color/black"
                 android:textSize="20dp"

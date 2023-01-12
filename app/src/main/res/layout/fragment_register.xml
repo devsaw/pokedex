@@ -29,6 +29,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:fontFamily="@font/lato"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -45,6 +46,7 @@
                 android:id="@+id/editTextNameRegister"
                 android:maxLength="45"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/lato"
                 android:keyboardNavigationCluster="false"
                 android:layout_height="54dp"
                 tools:ignore="MissingConstraints" />
@@ -59,6 +61,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
+        android:fontFamily="@font/lato"
         android:hint="Email"
         android:inputType="textPersonName"
         android:textColorHint="@color/black"
@@ -71,6 +74,7 @@
             android:id="@+id/editTextUserRegister"
             android:layout_width="match_parent"
             android:maxLength="45"
+            android:fontFamily="@font/lato"
             android:keyboardNavigationCluster="false"
             android:layout_height="54dp"
             tools:ignore="MissingConstraints" />
@@ -82,6 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/lato"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:hint="Senha"
@@ -95,6 +100,7 @@
             android:id="@+id/editTextPassRegister"
             android:layout_width="match_parent"
             android:layout_height="54dp"
+            android:fontFamily="@font/lato"
             android:maxLength="25"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -106,6 +112,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
+            android:fontFamily="@font/lato"
             android:layout_marginEnd="20dp"
             android:hint="Confirme a Senha"
             android:textColorHint="@color/black"
@@ -118,6 +125,7 @@
                 android:id="@+id/editTwoTextPassRegister"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
+                android:fontFamily="@font/lato"
                 android:maxLength="25"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -137,6 +145,7 @@
                 android:textColor="@color/black"
                 android:layout_marginStart="5dp"
                 android:textSize="15sp"
+                android:fontFamily="@font/lato"
                 android:layout_marginTop="8dp"
                 android:text="Aceite os termos"
                 app:layout_constraintStart_toStartOf="parent"
@@ -162,6 +171,7 @@
         android:layout_marginBottom="100dp"
         android:layout_gravity="center"
         android:text="Registrar"
+        android:fontFamily="@font/lato"
         android:textSize="20dp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"

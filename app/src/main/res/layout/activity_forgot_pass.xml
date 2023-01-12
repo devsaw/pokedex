@@ -56,6 +56,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginEnd="20dp"
             android:ems="10"
+            android:fontFamily="@font/lato"
             android:hint="Email"
             android:inputType="textPersonName"
             android:textColorHint="@color/black"
@@ -67,6 +68,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextUserForgot"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/lato"
                 android:layout_height="54dp"
                 android:keyboardNavigationCluster="false"
                 tools:ignore="MissingConstraints" />
@@ -79,6 +81,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginTop="220dp"
+            android:fontFamily="@font/lato"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="100dp"
             android:backgroundTint="@color/white"

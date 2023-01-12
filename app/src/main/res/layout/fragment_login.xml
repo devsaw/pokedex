@@ -29,6 +29,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:fontFamily="@font/lato"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -44,6 +45,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/loginEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/lato"
                     android:maxLength="45"
                     android:layout_height="54dp"
                     tools:ignore="MissingConstraints" />
@@ -55,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:hint="Senha"
@@ -67,6 +70,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/lato"
                     android:layout_height="54dp"
                     android:maxLength="25"
                     android:inputType="textPassword" />
@@ -85,6 +89,7 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:text="Esqueci a senha"
+                android:fontFamily="@font/lato"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
             </LinearLayout>
@@ -130,6 +135,7 @@
                 android:layout_marginBottom="100dp"
                 android:layout_gravity="center"
                 android:text="Logar"
+                android:fontFamily="@font/lato"
                 android:textSize="20dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/white"

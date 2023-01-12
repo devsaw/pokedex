@@ -26,6 +26,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="70dp"
+        android:fontFamily="@font/lato"
         android:textAlignment="center"
         android:textColor="@color/blackPoke"
         android:textSize="20dp"

@@ -2,6 +2,7 @@ package br.digitalhouse.pokedex.ui.dashboard.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.databinding.ActivityNotifyBinding
@@ -16,6 +17,8 @@ class NotifyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setOnClickListener()
+        binding.textViewNotifyEmpty.visibility = View.VISIBLE
+        binding.rvListNotify.visibility = View.GONE
        // adapter()
     }
 

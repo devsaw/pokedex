@@ -46,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.btnFav.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
-            binding.fav.setImageResource(R.drawable.ic_heartred)
+            binding.fav.setImageResource(R.drawable.ic_pokeballnotempty)
             pushDataToFireBase()
         }
     }

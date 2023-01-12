@@ -7,19 +7,33 @@
     android:background="@color/foundColor"
     tools:context=".ui.dashboard.view.SearchFragment">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/pesquisepoke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:background="@drawable/shape_searchview"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
         tools:ignore="MissingConstraints">
 
         <ImageView
@@ -35,17 +49,18 @@
             android:layout_height="38dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
+            android:fontFamily="@font/lato"
             android:background="@color/white"
             android:focusable="true"
-            android:maxLength="25"
             android:hint="Pesquisar..."
-            android:paddingStart="10dp"
-            android:inputType="text"
             android:iconifiedByDefault="false"
             android:importantForAccessibility="yes"
+            android:inputType="text"
+            android:maxLength="25"
             android:orientation="horizontal"
+            android:paddingStart="10dp"
             android:queryBackground="@android:color/transparent"
-            android:queryHint="Pesquisar..."/>
+            android:queryHint="Pesquisar..." />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

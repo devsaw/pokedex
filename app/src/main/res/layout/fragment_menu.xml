@@ -97,7 +97,7 @@
                         android:paddingTop="13dp"
                         android:paddingEnd="13dp"
                         android:paddingBottom="13dp"
-                        android:src="@drawable/user"
+                        android:src="@drawable/userperf"
                         tools:ignore="MissingConstraints" />
 
                     <TextView
@@ -105,6 +105,7 @@
                         android:layout_height="60dp"
                         android:layout_marginTop="2dp"
                         android:background="@color/blackPoke"
+                        android:fontFamily="@font/lato"
                         android:gravity="center"
                         android:text="Meu Perfil"
                         android:textColor="@color/white"
@@ -147,7 +148,7 @@
                         android:paddingTop="13dp"
                         android:paddingEnd="13dp"
                         android:paddingBottom="13dp"
-                        android:src="@drawable/alterar"
+                        android:src="@drawable/ic_alterarpass"
                         tools:ignore="MissingConstraints" />
 
                     <TextView
@@ -156,6 +157,7 @@
                         android:layout_marginTop="2dp"
                         android:background="@color/blackPoke"
                         android:gravity="center"
+                        android:fontFamily="@font/lato"
                         android:text="Alterar Senha"
                         android:textColor="@color/white"
                         android:textSize="18dp"
@@ -193,8 +195,8 @@
                         android:layout_height="50dp"
                         android:layout_marginStart="35dp"
                         android:layout_marginTop="2dp"
-                        android:padding="8dp"
-                        android:src="@drawable/economizar"
+                        android:padding="11dp"
+                        android:src="@drawable/donat"
                         tools:ignore="MissingConstraints" />
 
                     <TextView
@@ -205,6 +207,7 @@
                         android:gravity="center"
                         android:text="Contribua"
                         android:textColor="@color/white"
+                        android:fontFamily="@font/lato"
                         android:textSize="18dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView7"
@@ -245,7 +248,7 @@
                         android:paddingTop="13dp"
                         android:paddingEnd="13dp"
                         android:paddingBottom="13dp"
-                        android:src="@drawable/desativar"
+                        android:src="@drawable/ic_desativaracc"
                         tools:ignore="MissingConstraints" />
 
                     <TextView
@@ -256,6 +259,7 @@
                         android:gravity="center"
                         android:text="Desativar Conta"
                         android:textColor="@color/white"
+                        android:fontFamily="@font/lato"
                         android:textSize="18dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView7"
@@ -300,7 +304,7 @@
                     android:paddingTop="13dp"
                     android:paddingEnd="13dp"
                     android:paddingBottom="13dp"
-                    android:src="@drawable/sair"
+                    android:src="@drawable/ic_sair"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -309,6 +313,7 @@
                     android:layout_marginTop="2dp"
                     android:background="@color/blackPoke"
                     android:gravity="center"
+                    android:fontFamily="@font/lato"
                     android:text="Sair"
                     android:textColor="@color/white"
                     android:textSize="18dp"
