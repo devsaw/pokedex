@@ -75,7 +75,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
 
         binding.textTerms.setOnClickListener{
-            
+            startActivity(Intent(requireContext(), PdfViewerActivity::class.java))
         }
     }
 

@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.signin.view.PdfViewerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.dashboard.view.NotifyActivity"
             android:exported="false" />
         <activity
@@ -36,10 +39,10 @@
             android:name="br.digitalhouse.pokedex.ui.menu.view.PerfilActivity"
             android:exported="false" />
         <activity
-            android:name="br.digitalhouse.pokedex.ui.signin.view.ForgotPassActivity"
+            android:name=".ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name="br.digitalhouse.pokedex.ui.signin.view.SmsActivity"
+            android:name=".SmsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.dashboard.view.DashBoardHostActivity"
@@ -48,7 +51,7 @@
             android:name="br.digitalhouse.pokedex.ui.intro.view.SlideHostActivity"
             android:exported="false" />
         <activity
-            android:name="br.digitalhouse.pokedex.ui.signin.view.SignInHostActivity"
+            android:name=".SignInHostActivity"
             android:exported="false" />
         <activity
             android:name="br.digitalhouse.pokedex.ui.intro.view.SplashScreenActivity"
