@@ -10,8 +10,6 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import ap5m.safetyglasses.com.R
-import ap5m.safetyglasses.com.ui.main.ConteudoPrincipalActivity
 import br.digitalhouse.pokedex.R
 import br.digitalhouse.pokedex.ui.dashboard.view.DashBoardHostActivity
 import com.google.firebase.messaging.FirebaseMessagingService

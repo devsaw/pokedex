@@ -1,11 +1,14 @@
 package br.digitalhouse.pokedex.ui.dashboard.view
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -26,6 +29,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private var auth: FirebaseAuth? = null
     lateinit var preferences: Preferences
+    var textCartItemCount: TextView? = null
+    var mCartItemCount = 0
     private lateinit var pokeAdapter: HomeAdapter
 
     override fun onCreateView(
@@ -47,6 +52,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         adapter()
         setOnClickListener()
         validName()
+        setupBadge()
+        setupBadge1()
     }
 
     private fun setOnClickListener() {
@@ -103,6 +110,55 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onPause() {
         super.onPause()
         requireActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
+
+    private fun setupBadge1() {
+        if (preferences.getLogin() == true) {
+            if (mCartItemCount == 0) {
+
+                binding.cartBadge.visibility = View.GONE
+
+            } else {
+                binding.cartBadge.text = Integer.min(mCartItemCount, 9).toString()
+                if (mCartItemCount >= 10) binding.cartBadge.text = "9+"
+
+                binding.cartBadge.visibility = View.VISIBLE
+
+            }
+        }
+    }
+
+    private fun setupBadge() {
+        if (textCartItemCount != null) {
+            if (mCartItemCount == 0) {
+                if (textCartItemCount!!.visibility != View.GONE) {
+                    textCartItemCount!!.visibility = View.GONE
+                }
+            } else {
+                textCartItemCount!!.text = Math.min(mCartItemCount, 99).toString()
+                if (textCartItemCount!!.visibility != View.VISIBLE) {
+                    textCartItemCount!!.visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
+    private val myReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+
+
+            //chamar so se estiver na main como visao principal
+            if (intent.extras != null) {
+
+//                val body = intent.getStringExtra("descricao")
+//                val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
+//                graph.setStartDestination(R.id.sucessLevelFragment)
+//                navController.graph = graph
+                //findNavController(R.id.mobile_navigation_xml).navigate(R.id.sucessLevelFragment)
+                // Toast.makeText(this@HomeActivity, "Foi", Toast.LENGTH_SHORT).show()
+
+            }
+        }
     }
 
 }
