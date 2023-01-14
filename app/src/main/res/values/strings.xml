@@ -2,4 +2,5 @@
     <string name="app_name">PokeDex</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pdf_page_counter">%d / %d</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
 </resources>
