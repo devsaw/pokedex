@@ -87,4 +87,6 @@ dependencies {
     //PDF Viewer
     implementation 'com.danjdt:pdfviewer:0.1.0'
 
+    //AdMob
+    implementation 'com.google.android.gms:play-services-ads:21.4.0'
 }

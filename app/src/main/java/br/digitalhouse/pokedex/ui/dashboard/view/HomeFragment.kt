@@ -20,6 +20,9 @@ import br.digitalhouse.pokedex.data.utils.Preferences
 import br.digitalhouse.pokedex.ui.dashboard.adapter.HomeAdapter
 import br.digitalhouse.pokedex.ui.dashboard.viewmodel.PokemonViewModel
 import br.digitalhouse.pokedex.ui.signin.model.User
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.coroutines.launch
@@ -29,6 +32,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private var auth: FirebaseAuth? = null
     lateinit var preferences: Preferences
+    lateinit var mAdView: AdView
     var textCartItemCount: TextView? = null
     var mCartItemCount = 0
     private lateinit var pokeAdapter: HomeAdapter
@@ -52,6 +56,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         adapter()
         setOnClickListener()
         validName()
+        bannerAdMob()
         setupBadge()
         setupBadge1()
     }
@@ -105,6 +110,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 Log.i("CANCEL", "CONSULTA NO BANCO DO FIREBASE onCancelled")
             }
         })
+    }
+
+    private fun bannerAdMob(){
+        MobileAds.initialize(requireContext()) {}
+        mAdView = binding.adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onPause() {

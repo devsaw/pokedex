@@ -19,12 +19,16 @@ import br.digitalhouse.pokedex.data.dto.PokemonObject
 import br.digitalhouse.pokedex.databinding.FragmentSearchBinding
 import br.digitalhouse.pokedex.ui.dashboard.adapter.SearchAdapter
 import br.digitalhouse.pokedex.ui.dashboard.viewmodel.PokemonViewModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private val binding: FragmentSearchBinding by lazy { FragmentSearchBinding.inflate(layoutInflater) }
     lateinit var searchAdapter: SearchAdapter
+    lateinit var mAdView: AdView
     private val cList = mutableListOf<ListPokemon>()
     private val pokemonViewModel: PokemonViewModel by viewModels()
 
@@ -39,6 +43,14 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter()
+        bannerAdMob()
+    }
+
+    private fun bannerAdMob(){
+        MobileAds.initialize(requireContext()) {}
+        mAdView = binding.adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     private fun adapter() {

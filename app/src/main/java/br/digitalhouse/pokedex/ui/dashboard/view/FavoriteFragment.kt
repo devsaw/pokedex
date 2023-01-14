@@ -15,6 +15,9 @@ import br.digitalhouse.pokedex.data.dto.PokemonsDataClass
 import br.digitalhouse.pokedex.data.utils.ConfigFirebase
 import br.digitalhouse.pokedex.databinding.FragmentFavoriteBinding
 import br.digitalhouse.pokedex.ui.dashboard.adapter.FavoriteAdapter
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -23,6 +26,7 @@ import com.google.firebase.database.ValueEventListener
 class FavoriteFragment : Fragment(R.layout.fragment_favorite){
     private val binding: FragmentFavoriteBinding by lazy { FragmentFavoriteBinding.inflate(layoutInflater) }
     lateinit var rvFavAdapter: FavoriteAdapter
+    lateinit var mAdView: AdView
     private val taskList = mutableListOf<PokemonsDataClass>()
 
     override fun onCreateView(
@@ -37,6 +41,14 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite){
         super.onViewCreated(view, savedInstanceState)
         getDataFromFireBase()
         deletDataFromFireBaseWithSwipe()
+        bannerAdMob()
+    }
+
+    private fun bannerAdMob(){
+        MobileAds.initialize(requireContext()) {}
+        mAdView = binding.adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     private fun getDataFromFireBase() {

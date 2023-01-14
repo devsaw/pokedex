@@ -3,4 +3,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pdf_page_counter">%d / %d</string>
     <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="ID_BANNER">ca-app-pub-6562529051751112/9163333711</string>
+    <string name="ID_BANNER_FAVORITE">ca-app-pub-6562529051751112/5818985078</string>
+    <string name="ID_BANNER_SEARCH">ca-app-pub-6562529051751112/5237612719</string>
 </resources>
