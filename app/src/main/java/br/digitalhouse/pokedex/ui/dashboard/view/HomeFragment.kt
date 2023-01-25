@@ -160,7 +160,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
 
             //chamar so se estiver na main como visao principal
-            if (intent.extras != null) {
+//            if (intent.extras != null) {
 
 //                val body = intent.getStringExtra("descricao")
 //                val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
@@ -169,7 +169,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 //findNavController(R.id.mobile_navigation_xml).navigate(R.id.sucessLevelFragment)
                 // Toast.makeText(this@HomeActivity, "Foi", Toast.LENGTH_SHORT).show()
 
-            }
+//            }
         }
     }
 
