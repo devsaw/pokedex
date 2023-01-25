@@ -104,7 +104,7 @@ class MenuFragment : Fragment() {
                     }
                     alertDialog.dismiss()
                 }else{
-                    Toast.makeText(requireContext(), "Não é possível alterar no momento!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Não é possível no momento!", Toast.LENGTH_SHORT).show()
                 }
             }
             alertDialog = build.create()
